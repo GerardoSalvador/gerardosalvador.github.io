@@ -45,6 +45,11 @@ h1 {
     font-size: 1.2rem;
 }
 
+.btn-info {
+    font-size: 1.1rem;
+    margin: 20px;
+}
+
 .texto-negro {
     color: black;
 }
@@ -178,7 +183,26 @@ h1 {
     opacity: 1;
 }
 
+.overlay .iconos-contenedor {
+    display: flex;
+}
+
+.overlay i {
+    color: black;
+    font-size: 60px;
+    margin: 10px;
+}
+
 /*ADAPTABLE RESPONSIVO*/
+@media screen and (max-width: 400px){
+    .overlay p {
+        font-size: 18px;
+    }
+    .overlay i {
+        font-size: 40px;
+    }
+}
+
 @media screen and (max-width:575px){
     .navbar-brand{
         display: none;
