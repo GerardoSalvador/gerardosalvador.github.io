@@ -1,257 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <!--METADATOS-->
-    <meta charset="UTF-8">
-    <meta name="author" content="José Gerardo Salvador Pérez Sánchez">
-    <meta name="description" content="Portafolio de desarrollo web">
-    <meta name="keywords" content="HTML, CSS, JavaScript, React">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--TITULO-->
-    <title>Gerardo | Desarrollo Web Frontend</title>
-    <!--FAVICON-->
-    <link rel="icon" type="image/x-icon" href="imagenes/redteam.png">
-    <!--CSS BOOTSTRAP-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!--CSS PERSONALIZADO-->
-    <link rel="stylesheet" href="/styles.css">
-    <!--ICONS BOOTSTRAP-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <!--GOOGLE FUENTES (fonts.google.com)-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Rubik+Dirt&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <!--BARRA DE NAVEGACION-->
-    <nav class="navbar navbar-expand-sm navbar-light ">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-toggler">
-          <a class="navbar-brand" href="#"><img src="imagenes/hacker.png" width="50" alt="logo de la página"></a>
-          <ul class="navbar-nav d-flex justify-content-center align-items-center">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Sobre mí</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Proyectos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Visión</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contactos</a>
-            </li>
-          </ul>
-        </div>
+
+<head>
+  <!--METADATOS-->
+  <meta charset="UTF-8">
+  <meta name="author" content="José Gerardo Salvador Pérez Sánchez">
+  <meta name="description" content="CV WEB">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--TITULO-->
+  <title>| CV | GERARDO SALVADOR |</title>
+  <!--FAVICON-->
+  <link rel="icon" type="image/x-icon" href="img/logo2.ico">
+  <!--CSS BOOTSTRAP-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!--CSS PERSONALIZADO-->
+  <link rel="stylesheet" href="/styles.css">
+  <!--ICONS BOOTSTRAP-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <!--GOOGLE FUENTES (fonts.google.com)-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Rubik+Dirt&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!--BARRA DE NAVEGACION-->
+  <nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-toggler">
+        <a class="navbar-brand" href="#"><img class="navbar-logo" src="img/logo1.png" width="50" alt="logo"></a>
+        <ul class="navbar-nav d-flex justify-content-center align-items-center">
+          <li class="nav-item navbar-shadow">
+            <a class="nav-link active" aria-current="page" href="#sobre-mi">SOBRE MI</a>
+          </li>
+          <li class="nav-item navbar-shadow">
+            <a class="nav-link" href="#experiencia">EXPERIENCIA</a>
+          </li>
+          <li class="nav-item navbar-shadow">
+            <a class="nav-link" href="#proyectos">PROYECTOS</a>
+          </li>
+          <li class="nav-item navbar-shadow">
+            <a class="nav-link" href="#contacto">CONTACTOS</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!--SECCION HERO-->
-    <section class="hero align-items-stretch" >
-      <div class="hero-principal d-flex flex-column justify-content-center align-items-center">
-        <img class="hero-imagen-desarrollador rounded-circle" src="imagenes/gerardo.png" alt="Gerardo Salvador">
-        <h1>Hola, soy Gerardo Salvador</h1>
-        <h2>Buscando ser mejor día con día en desarrollo de software, redes y sistemas operativos.</h2>
-      </div>
-      <div class="hero-inferior">
-        <img class="hero-inferior-imagen img-fluid" src="imagenes/logo_html_color.svg" alt="logo html">
-        <img class="hero-inferior-imagen img-fluid" src="imagenes/logo_css_color.svg" alt="logo css">
-        <img class="hero-inferior-imagen img-fluid" src="imagenes/logo_python_color.svg" alt="logo python">
-        <img class="hero-inferior-imagen img-fluid" src="imagenes/linux.svg" alt="logo de tux">
-      </div>
-    </section>
+  <!--SECCION HERO-->
+  <section class="hero align-items-stretch">
+    <div class="hero-principal d-flex flex-column justify-content-center align-items-center">
+      <img class="hero-imagen-desarrollador rounded-circle" src="img/gerardo.jpeg" alt="Gerardo Salvador">
+      <h1>JOSÉ GERARDO SALVADOR PÉREZ SÁNCHEZ</h1>
+      <h2>| 24 AÑOS | VILLAHERMOSA, TABASCO, MÉXICO |</h2>
+      <p class="seccion-texto">Buscando ser mejor día con día en desarrollo de software y redes
+        para implementar procesos de automatización en diferentes sistemas operativos.
+      </p>
+    </div>
+    <div class="hero-inferior hero-principal">
+      <img class="hero-inferior-imagen img-fluid" src="img/applications-java.svg" alt="JAVA LOGO">
+      <img class="hero-inferior-imagen img-fluid" src="img/c-sharp.svg" alt="C# LOGO">
+      <img class="hero-inferior-imagen img-fluid" src="img/logo_python_color.svg" alt="PYTHON LOGO">
+      <img class="hero-inferior-imagen img-fluid" src="img/linux.svg" alt="TUX LOGO">
+      <img class="hero-inferior-imagen img-fluid" src="img/router.svg" alt="ROUTER LOGO">
+      <img class="hero-inferior-imagen img-fluid" src="img/cisco.svg" alt="CISCO LOGO">
+      <img class="hero-inferior-imagen img-fluid" src="img/fortinet.svg" alt="FORTINET LOGO">
+    </div>
+  </section>
 
-    <!--SOBRE MI-->
-    <section class="sobre-mi seccion-oscura">
-      <div class="contenedor">
-        <h2 class="seccion-titulo">Conóceme</h2>
-        <p class="seccion-texto">Estudiante de último semestre de ingenieria en Sistemas Computacionales
-          en el Instituto Tecnológico Nacional de México Campus Villahermosa. <br>
-          Con un gran interés en hacer uso de mis conocimientos en lenguajes de programación, redes y sistemas operativos como Linux y Windows
-          para agilizar o automatizar diferentes procesos que puedan ser muy repetivos en las empresas.
-        </p>
-      </div>
-    </section>
+  <!--SOBRE MI-->
+  <section id="sobre-mi" class="sobre-mi seccion-oscura">
+    <div class="contenedor">
+      <h2 class="seccion-titulo">SOBRE MI</h2>
+      <p class="seccion-texto">
+        Ingeniero en sistemas computacionales egresado del Instituto Tecnológico
+        Nacional de México Campus Villahermosa. <br>
+        Con conocimientos en Programación Orientada a Objetos (POO) y creación de redes LAN en switches Cisco y
+        Fortinet.
+      </p>
+    </div>
+  </section>
 
-    <!--EXPERIENCIA-->
-    <section class="experiencia seccion-clara">
-      <div class="container text-center">
-        <div class="row">
-          <!--Desarrollo Web-->
-          <div class="columna col-12 col-md-4">
-            <i class="bi bi-laptop"></i>
-            <p class="experiencia-titulo">DESARROLLO SOFTWARE</p>
-            <p>Algunas de las tecnologías para desarrollo que he usado a lo largo de la carrera son las siguientes:<br></p>
-            <div class="badges-contenedor">
-              <span class="badge bg-primary">Java</span>
-              <span class="badge bg-primary">C# .NET</span>
-              <span class="badge bg-primary">PYTHON</span>
-              <span class="badge bg-primary">PHP</span>
-              <span class="badge bg-primary">JAVASCRIPT</span>
-              <span class="badge bg-primary">PostgreSQL</span>
-              <span class="badge bg-primary">MySQL</span>
-              <span class="badge bg-primary">HTML</span>
-              <span class="badge bg-primary">CSS</span>
-              <span class="badge bg-primary">NGINX</span>
-              <span class="badge bg-primary">APACHE</span>
-              <span class="badge bg-primary">BOOTSTRAP</span>
-              <span class="badge bg-primary">BASH</span>
-              <span class="badge bg-primary">BATCH</span>
+  <!--EXPERIENCIA-->
+  <section id="experiencia" class="experiencia seccion-clara">
+    <div class="container text-center">
+      <div class="row">
+        <!--Desarrollo Web-->
+        <div class="columna col-12 col-md-4">
+          <i class="bi bi-laptop"></i>
+          <p class="experiencia-titulo">DESARROLLO SOFTWARE</p>
+          <p>Algunas de las tecnologías para desarrollo que he usado a lo largo de la carrera son las siguientes:<br>
+          </p>
+          <div class="badges-contenedor">
+            <span class="badge bg-primary">Java</span>
+            <span class="badge bg-primary">C# .NET</span>
+            <span class="badge bg-primary">PYTHON</span>
+            <span class="badge bg-primary">PHP</span>
+            <span class="badge bg-primary">JAVASCRIPT</span>
+            <span class="badge bg-primary">PostgreSQL</span>
+            <span class="badge bg-primary">MySQL</span>
+            <span class="badge bg-primary">HTML</span>
+            <span class="badge bg-primary">CSS</span>
+            <span class="badge bg-primary">NGINX</span>
+            <span class="badge bg-primary">APACHE</span>
+            <span class="badge bg-primary">BOOTSTRAP</span>
+            <span class="badge bg-primary">BASH</span>
+            <span class="badge bg-primary">BATCH</span>
 
-            </div>
-          </div>
-
-          <!--Articulos-->
-          <div class="columna col-12 col-md-4">
-            <i class="bi bi-laptop"></i>
-            <p class="experiencia-titulo">REDES</p>
-            <p>Algunas de las habilidades y tecnologías de reelevancia aprendidas mediante la realización de tareas y prácticas han sido:</p>
-            <div class="badges-contenedor">
-              <span class="badge bg-primary">ARP</span>
-              <span class="badge bg-primary">DNS</span>
-              <span class="badge bg-primary">HTTP HTTPS</span>
-              <span class="badge bg-primary">WIRESHARK</span>
-              <span class="badge bg-primary">SNORT</span>
-              <span class="badge bg-primary">USO DE IPV4</span>
-              <span class="badge bg-primary">IMPLEMENTACIÓN DE VLANS</span>
-              <span class="badge bg-primary">SWITCHING BÁSICO</span>
-            </div>
-          </div>
-
-          <!--Estudiante-->
-          <div class="columna col-12 col-md-4">
-            <i class="bi bi-laptop"></i>
-            <p class="experiencia-titulo">Estudiante</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque </p>
-            <div class="badges-contenedor">
-              <span class="badge bg-primary">FreeCodeCamp</span>
-              <span class="badge bg-primary">Udemy</span>
-              <span class="badge bg-primary">Python</span>
-              <span class="badge bg-primary">NetAcad</span>
-            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!--PROYECTOS-->
-    <section class="proyectos-recientes seccion-clara d-flex flex-column">
-      <h2 class="seccion-titulo texto-negro">Mis proyectos</h2>
-      <h3 class="seccion-descripcion">Estos son algunos de los proyectos que he creado recientemente</h3>
-      <!--GALERIA DE PROYECTOS-->
-      <div class="container texto-center proyectos-contenedor">
-        <div class="row">
-          <!--PROYECTO 1-->
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="proyecto">
-              <img src="imagenes/script.png" alt="script">
-              <div class="overlay">
-                <p>Proyecto 1</p>
-                <div class="iconos-contenedor">
-                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-github"></i>
-                  </a>
-                  <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-laptop"></i>
-                  </a>
-                </div>
+        <!--Articulos-->
+        <div class="columna col-12 col-md-4">
+          <i class="bi bi-laptop"></i>
+          <p class="experiencia-titulo">REDES</p>
+          <p>Algunas de las habilidades y tecnologías de reelevancia aprendidas mediante la realización de tareas y
+            prácticas han sido:</p>
+          <div class="badges-contenedor">
+            <span class="badge bg-primary">ARP</span>
+            <span class="badge bg-primary">DNS</span>
+            <span class="badge bg-primary">HTTP HTTPS</span>
+            <span class="badge bg-primary">WIRESHARK</span>
+            <span class="badge bg-primary">SNORT</span>
+            <span class="badge bg-primary">USO DE IPV4</span>
+            <span class="badge bg-primary">IMPLEMENTACIÓN DE VLANS</span>
+            <span class="badge bg-primary">SWITCHING BÁSICO</span>
+          </div>
+        </div>
+
+        <!--Estudiante-->
+        <div class="columna col-12 col-md-4">
+          <i class="bi bi-laptop"></i>
+          <p class="experiencia-titulo">Estudiante</p>
+          <p>En preparación para obtner la certificación CCNA</p>
+          <div class="badges-contenedor">
+            <span class="badge bg-primary">Harmon Hall (Nivel B1)</span>
+            <span class="badge bg-primary">NetAcad</span>
+            <span class="badge bg-primary">ITNM</span>
+            <span class="badge bg-primary">Udemy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--PROYECTOS-->
+  <section id="proyectos" class="proyectos-recientes seccion-oscura d-flex flex-column">
+    <h2 class="seccion-titulo texto-claro">Mis proyectos</h2>
+    <h3 class="seccion-descripcion">Estos son algunos de los proyectos que he creado recientemente</h3>
+    <!--GALERIA DE PROYECTOS-->
+    <div class="container texto-center proyectos-contenedor">
+      <div class="row">
+        <!--PROYECTO 1-->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="proyecto">
+            <img src="img/hacker.png" alt="script">
+            <div class="overlay">
+              <p>Proyecto 1</p>
+              <div class="iconos-contenedor">
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-laptop"></i>
+                </a>
               </div>
             </div>
           </div>
-          <!--PROYECTO 2-->
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="proyecto">
-              <img src="imagenes/script.png" alt="script">
-              <div class="overlay">
-                <p>Proyecto 2</p>
-                <div class="iconos-contenedor">
-                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-github"></i>
-                  </a>
-                  <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-laptop"></i>
-                  </a>
-                </div>
+        </div>
+        <!--PROYECTO 2-->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="proyecto">
+            <img src="img/redteam.png" alt="script">
+            <div class="overlay">
+              <p>Proyecto 2</p>
+              <div class="iconos-contenedor">
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-laptop"></i>
+                </a>
               </div>
             </div>
           </div>
-          <!--PROYECTO 3-->
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="proyecto">
-              <img src="imagenes/script.png" alt="script">
-              <div class="overlay">
-                <p>Proyecto 3</p>
-                <div class="iconos-contenedor">
-                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-github"></i>
-                  </a>
-                  <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-laptop"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--PROYECTO 4-->
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="proyecto">
-              <img src="imagenes/script.png" alt="script">
-              <div class="overlay">
-                <p>Proyecto 4</p>
-                <div class="iconos-contenedor">
-                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-github"></i>
-                  </a>
-                  <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-laptop"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--PROYECTO 5-->
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="proyecto">
-              <img src="imagenes/script.png" alt="script">
-              <div class="overlay">
-                <p>Proyecto 5</p>
-                <div class="iconos-contenedor">
-                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-github"></i>
-                  </a>
-                  <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-laptop"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--PROYECTO 6-->
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="proyecto">
-              <img src="imagenes/script.png" alt="script">
-              <div class="overlay">
-                <p>Proyecto 6</p>
-                <div class="iconos-contenedor">
-                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-github"></i>
-                  </a>
-                  <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-laptop"></i>
-                  </a>
-                </div>
+        </div>
+        <!--PROYECTO 3-->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="proyecto">
+            <img src="img/hacker.png" alt="script">
+            <div class="overlay">
+              <p>Proyecto 3</p>
+              <div class="iconos-contenedor">
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-laptop"></i>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!--BOTON PARA PROYECTOS FUTUROS
+    </div>
+    <!--BOTON PARA PROYECTOS FUTUROS
       <a href="https://github.com" target="_blank" rel="noopener noreferrer">
         <button type="button" class="btn btn-info">
           Ver más proyectos
@@ -259,53 +221,54 @@
         </button>
       </a>
       -->
-    </section>
+  </section>
 
-    <!--SECCION DE ARTICULOS 4:02:53 la omiti -->
-    <!--SECCION DE TESTIMONIOS 4:13:10 la omiti -->
-    <!--CONTACTO -->
-    <section id="contacto" class="contacto seccion-oscura">
-      <div class="container">
-        <div class="container text-center rectangulo d-flex justify-content-evenly">
-          <div class="row">
-            <div class="col-12 col-md-4 seccion-titulo">
-              ¡Hablemos!
-            </div>
-            <div class="col-12 col-md-4 descripcion">
-              Contáctame y hagamos tu página realidad.
-            </div>
-            <div class="col-12 col-md-4">
-              <a href="mailto:gerardperezsanchez@gmail.com">
-                <button type="button">  
-                  Contacto
-                  <i class="bi bi-envelope-check-fill"></i>
-                </button>
-              </a>
-            </div>
+  <!--CONTACTO -->
+  <section id="contacto" class="contacto seccion-clara">
+    <div class="container">
+      <div class="container text-center rectangulo d-flex justify-content-evenly">
+        <div class="row">
+          <div class="col-12 col-md-4 seccion-titulo">
+            ¡Contactame!
+          </div>
+          <div class="col-12 col-md-4 descripcion">
+            Contáctame y hagamos tu proyecto realidad.
+          </div>
+          <div class="col-12 col-md-4">
+            <a href="mailto:gerardperezsanchez@gmail.com">
+              <button type="button">
+                Contacto
+                <i class="bi bi-envelope-check-fill"></i>
+              </button>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Pie de pagina (footer) -->
-    <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center"> 
-      <img class="footer-logo" src="imagenes/hacker.png" alt="Logo del portafolio">
-      <p class="footer-texto text-center">Cada día es una oportunidad para mejorar.<br>Hagámoslo juntos.</p>
-      <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
-        <a href="https://github.com/GerardoSalvador" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/es/jgsps/" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-linkedin"></i>
-        </a>
-        <a href="mailto:gerardperezsanchez@gmail.com" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-envelope"></i>
-        </a>
-      </div>
-      <div class="derechos-de-autor">Gerardo Salvador</div>
-    </footer>
+  <!-- Pie de pagina (footer) -->
+  <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
+    <img class="footer-logo" src="img/logo1.png" alt="Logo del portafolio">
+    <p class="footer-texto text-center">Cada día es una oportunidad para mejorar.</p>
+    <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
+      <a href="https://github.com/GerardoSalvador" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/jgsps/" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-linkedin"></i>
+      </a>
+      <a href="mailto:gerardperezsanchez@gmail.com" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-envelope"></i>
+      </a>
+    </div>
+    <div class="derechos-de-autor">Gerardo Salvador</div>
+  </footer>
 
-    <!--JAVASCRIPT-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
+  <!--JAVASCRIPT-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

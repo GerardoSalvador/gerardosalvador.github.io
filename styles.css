@@ -1,14 +1,29 @@
 /* Barra de navegacion */
+.navbar-logo{
+  width: 90px;
+}
+
+.navbar-shadow:hover{
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: #009978;
+}
 
 .navbar {
-    padding: 2rem;
-    background-color: #f5f6f7;
+    padding: .5rem;
+    background-color: #000000;
   }
   
-  .navbar-collapse {
+.navbar-collapse {
     align-items: center;
     justify-content: space-between;  
   }
+
+.collapse .navbar-nav .nav-item .nav-link{
+  font-size: 20px;
+  color: #009978;
+}
+
   
   /* Estilos generales */
   
@@ -25,8 +40,8 @@
   }
   
   .seccion-oscura {
-    color: white;
-    background-color: #1b1b32;
+    color: #009978;
+    background-color: #000000;
   }
   
   .seccion-clara {
@@ -42,7 +57,7 @@
   
   .seccion-descripcion {
     font-size: 1.2rem;
-    color: #584e4e;
+    color: #009978;
   }
   
   .seccion-texto {
@@ -78,10 +93,17 @@
     width: 200px;
     height: 200px;
     margin: 20px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #000000;
   }
   
   .hero-principal h2 {
     font-size: 1.5rem;
+    color: #615151;
+  }
+
+  .hero-principal h5 {
     color: #615151;
   }
   
@@ -183,10 +205,14 @@
   }
   
   .proyecto:hover img {
-    opacity: 0.2;
+    border-color: #009978;
+    opacity: 0.1;
   }
   
   .proyecto:hover .overlay {
+    border-width: 5px;
+    border-top-style: solid;
+    border-bottom-style: solid;
     opacity: 1;
   }
   
@@ -195,7 +221,7 @@
   }
   
   .overlay i {
-    color: black;
+    color: white;
     font-size: 60px;
     margin: 10px;
   }
@@ -281,7 +307,7 @@
   
   .contacto .rectangulo {
     margin-top: -5rem;
-    background-color: rgb(13, 110, 253);
+    background-color: #009978;
     border-radius: 10px;
     box-shadow: 0px 1px 4px 1px white;
   }
@@ -330,8 +356,8 @@
   }
   
   .footer-logo {
-    height: 80px;
-    width: 80px;
+    height: 300px;
+    width: 300px;
     margin: 10px;
   }
   
@@ -388,7 +414,7 @@
     }
   }
   
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 800px) {
     .navbar-brand {
       display: none;
     }
