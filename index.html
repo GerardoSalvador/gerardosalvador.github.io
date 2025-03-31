@@ -1,274 +1,308 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-  <!--METADATOS-->
-  <meta charset="UTF-8">
-  <meta name="author" content="José Gerardo Salvador Pérez Sánchez">
-  <meta name="description" content="CV WEB">
-  <meta name="keywords" content="HTML, CSS, JavaScript">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--TITULO-->
-  <title>| CV | GERARDO SALVADOR |</title>
-  <!--FAVICON-->
-  <link rel="icon" type="image/x-icon" href="img/logo2.ico">
-  <!--CSS BOOTSTRAP-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <!--CSS PERSONALIZADO-->
-  <link rel="stylesheet" href="/styles.css">
-  <!--ICONS BOOTSTRAP-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <!--GOOGLE FUENTES (fonts.google.com)-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Rubik+Dirt&display=swap" rel="stylesheet">
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E&E Salvador</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
-<body>
-  <!--BARRA DE NAVEGACION-->
-  <nav class="navbar navbar-expand-sm navbar-dark">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
-        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar-toggler">
-        <a class="navbar-brand" href="#"><img class="navbar-logo" src="img/logo1.png" width="50" alt="logo"></a>
-        <ul class="navbar-nav d-flex justify-content-center align-items-center">
-          <li class="nav-item navbar-shadow">
-            <a class="nav-link active" aria-current="page" href="#sobre-mi">SOBRE MI</a>
-          </li>
-          <li class="nav-item navbar-shadow">
-            <a class="nav-link" href="#experiencia">EXPERIENCIA</a>
-          </li>
-          <li class="nav-item navbar-shadow">
-            <a class="nav-link" href="#proyectos">PROYECTOS</a>
-          </li>
-          <li class="nav-item navbar-shadow">
-            <a class="nav-link" href="#contacto">CONTACTOS</a>
-          </li>
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#features" class="page-scroll">Especialidades</a></li>
+        <li><a href="#about" class="page-scroll">Sobre nosotros</a></li>
+        <li><a href="#restaurant-menu" class="page-scroll">Menú</a></li>
+        <li><a href="#team" class="page-scroll">Socios</a></li>
+        <li><a href="#contact" class="page-scroll">Contactos</a></li>
+        <li><a href="#" class="">Iniciar sesión</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="intro-text">
+            <h1>EyE Salvador</h1>
+            <p>Reservaciones: (993) 291 9089</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Features Section -->
+<div id="features" class="text-center">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nuestras especialidades</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="features-item">
+          <h3>Tostitos Preparados</h3>
+          <img src="img/specials/1.jpg" class="img-responsive" alt="">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="features-item">
+          <h3>Elotes revolcados</h3>
+          <img src="img/specials/2.jpg" class="img-responsive" alt="">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="features-item">
+          <h3>Bon-Elotes</h3>
+          <img src="img/specials/3.jpg" class="img-responsive" alt="">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About Section -->
+<div id="about">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 about-img"> </div>
+      <div class="col-xs-12 col-md-3 col-md-offset-1">
+        <div class="about-text">
+          <div class="section-title">
+            <h2>Nuestra Historia</h2>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Restaurant Menu Section -->
+<div id="restaurant-menu">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Menú</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="menu-section">
+          <h2 class="menu-section-title">Esquites</h2>
+          <div class="menu-item">
+            <div class="menu-item-name">Esquites</div>
+            <div class="menu-item-price"> $50 </div>
+            <div class="menu-item-description"> Esquite, limon, sal, mayonesa, queso crema, media crema, picante al gusto. </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Esquites revolcados</div>
+            <div class="menu-item-price"> $50 </div>
+            <div class="menu-item-description"> Esquite, limon, sal, mayonesa, queso crema, media crema, queso para nachos, sabrita triturada, guarnición de tostitos naturales, picante al gusto. </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Tostachos preparados</div>
+            <div class="menu-item-price"> $50 </div>
+            <div class="menu-item-description"> Esquite, nachos, mayonesa, queso crema, crema, sabritas trituradas, queso para nachos, picante al gusto. </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Tostitos preparados</div>
+            <div class="menu-item-price"> $50 </div>
+            <div class="menu-item-description"> Tostitos, esquite, limón, sal, mayonesa, queso crema, media crema, queso para nachos, picante al gusto. </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Chicharrón revolcado</div>
+            <div class="menu-item-price"> $45 </div>
+            <div class="menu-item-description"> Esquite, mayonesa, queso crema, crema, sabritas trituradas, queso para nachos, picante al gusto. </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Chicharrón preparado</div>
+            <div class="menu-item-price"> $30 </div>
+            <div class="menu-item-description"> Esquite, mayonesa, queso crema, media crema, picante al gusto. </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Esquisopas</div>
+            <div class="menu-item-price"> $30 </div>
+            <div class="menu-item-description"> Esquite, sopa maruchan, mayonesa, queso crema, semilla de calabaza (opcional), picante al gusto. </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="menu-section">
+          <h2 class="menu-section-title">Elotes</h2>
+          <div class="menu-item">
+            <div class="menu-item-name">Elote</div>
+            <div class="menu-item-price"> $11 </div>
+            <div class="menu-item-description">Elote, mayonesa, queso crema, media crema, picante al gusto. </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Elote revolcado</div>
+            <div class="menu-item-price"> $11 </div>
+            <div class="menu-item-description">Elote, mayonesa, queso crema, queso para nachos, media crema, sabritas trituradas, guarnición de tostitos naturales, picante al gusto. </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Bon-Elotes</div>
+            <div class="menu-item-price"> $14 </div>
+            <div class="menu-item-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, duis sed dapibus leo nec ornare diam. </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Gallery Section -->
+<div id="gallery">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-md-3">
+        <div class="gallery-item"> <img src="img/gallery/01.jpg" class="img-responsive" alt=""></div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <div class="gallery-item"> <img src="img/gallery/02.jpg" class="img-responsive" alt=""></div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <div class="gallery-item"> <img src="img/gallery/03.jpg" class="img-responsive" alt=""></div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <div class="gallery-item"> <img src="img/gallery/04.jpg" class="img-responsive" alt=""></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team Section -->
+<div id="team">
+  <div class="container">
+    <div id="row">
+      <div class="col-md-6">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="section-title">
+            <h2>Conocenos</h2>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="team-img"><img src="img/chef.jpg" alt="..."></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact Section -->
+<div id="contact" class="text-center">
+  <div class="container text-center">
+    <div class="col-md-4">
+      <h3>Reservaciones</h3>
+      <div class="contact-item">
+        <p>Llamar a</p>
+        <p>(993) 291 9089</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Dirección</h3>
+      <div class="contact-item">
+        <p>Fracc. Villa El Cielo, Primera Etapa, Calle Neptuno,</p>
+        <p>Villahermosa, Tabasco, CP 86290</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Horarios</h3>
+      <div class="contact-item">
+        <p>Lun-Jue: 10:00 AM - 11:00 PM</p>
+        <p>Vie-Dom: 11:00 AM - 02:00 AM</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="section-title text-center">
+      <h3>Envianos un mensaje</h3>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <form name="sentMessage" id="contactForm" novalidate>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Nombre" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="correo" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Mensaje" required></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success"></div>
+        <button type="submit" class="btn btn-custom btn-lg">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="container text-center">
+    <div class="col-md-6">
+      <p>&copy; 2020 Elotes y Esquites Salvador. Todos los derechos reservados.</p>
+    </div>
+    <div class="col-md-6">
+      <div class="social">
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-youtube"></i></a></li>
         </ul>
       </div>
     </div>
-  </nav>
-
-  <!--SECCION HERO-->
-  <section class="hero align-items-stretch">
-    <div class="hero-principal d-flex flex-column justify-content-center align-items-center">
-      <img class="hero-imagen-desarrollador rounded-circle" src="img/gerardo2.jpg" alt="Gerardo Salvador">
-      <h1>JOSÉ GERARDO SALVADOR PÉREZ SÁNCHEZ</h1>
-      <h2>| 24 AÑOS | VILLAHERMOSA, TABASCO, MÉXICO |</h2>
-      <p class="seccion-texto">Buscando ser mejor día con día en desarrollo de software y redes
-        para implementar procesos de automatización en diferentes sistemas operativos.
-      </p>
-    </div>
-    <div class="hero-inferior hero-principal">
-      <img class="hero-inferior-imagen img-fluid" src="img/applications-java.svg" alt="JAVA LOGO">
-      <img class="hero-inferior-imagen img-fluid" src="img/c-sharp.svg" alt="C# LOGO">
-      <img class="hero-inferior-imagen img-fluid" src="img/logo_python_color.svg" alt="PYTHON LOGO">
-      <img class="hero-inferior-imagen img-fluid" src="img/linux.svg" alt="TUX LOGO">
-      <img class="hero-inferior-imagen img-fluid" src="img/router.svg" alt="ROUTER LOGO">
-      <img class="hero-inferior-imagen img-fluid" src="img/cisco.svg" alt="CISCO LOGO">
-      <img class="hero-inferior-imagen img-fluid" src="img/fortinet.svg" alt="FORTINET LOGO">
-    </div>
-  </section>
-
-  <!--SOBRE MI-->
-  <section id="sobre-mi" class="sobre-mi seccion-oscura">
-    <div class="contenedor">
-      <h2 class="seccion-titulo">SOBRE MI</h2>
-      <p class="seccion-texto">
-        Ingeniero en sistemas computacionales egresado del Instituto Tecnológico
-        Nacional de México Campus Villahermosa. <br>
-        Con conocimientos en Programación Orientada a Objetos (POO) y creación de redes LAN en switches Cisco y
-        Fortinet.
-      </p>
-    </div>
-  </section>
-
-  <!--EXPERIENCIA-->
-  <section id="experiencia" class="experiencia seccion-clara">
-    <div class="container text-center">
-      <div class="row">
-        <!--Desarrollo Web-->
-        <div class="columna col-12 col-md-4">
-          <i class="bi bi-laptop"></i>
-          <p class="experiencia-titulo">DESARROLLO SOFTWARE</p>
-          <p>Algunas de las tecnologías para desarrollo que he usado a lo largo de la carrera son las siguientes:<br>
-          </p>
-          <div class="badges-contenedor">
-            <span class="badge bg-primary">Java</span>
-            <span class="badge bg-primary">C# .NET</span>
-            <span class="badge bg-primary">PYTHON</span>
-            <span class="badge bg-primary">PHP</span>
-            <span class="badge bg-primary">JAVASCRIPT</span>
-            <span class="badge bg-primary">PostgreSQL</span>
-            <span class="badge bg-primary">MySQL</span>
-            <span class="badge bg-primary">HTML</span>
-            <span class="badge bg-primary">CSS</span>
-            <span class="badge bg-primary">NGINX</span>
-            <span class="badge bg-primary">APACHE</span>
-            <span class="badge bg-primary">BOOTSTRAP</span>
-            <span class="badge bg-primary">BASH</span>
-            <span class="badge bg-primary">BATCH</span>
-
-          </div>
-        </div>
-
-        <!--Articulos-->
-        <div class="columna col-12 col-md-4">
-          <i class="bi bi-laptop"></i>
-          <p class="experiencia-titulo">REDES</p>
-          <p>Algunas de las habilidades y tecnologías de reelevancia aprendidas mediante la realización de tareas y
-            prácticas han sido:</p>
-          <div class="badges-contenedor">
-            <span class="badge bg-primary">ARP</span>
-            <span class="badge bg-primary">DNS</span>
-            <span class="badge bg-primary">HTTP HTTPS</span>
-            <span class="badge bg-primary">WIRESHARK</span>
-            <span class="badge bg-primary">SNORT</span>
-            <span class="badge bg-primary">USO DE IPV4</span>
-            <span class="badge bg-primary">IMPLEMENTACIÓN DE VLANS</span>
-            <span class="badge bg-primary">SWITCHING BÁSICO</span>
-          </div>
-        </div>
-
-        <!--Estudiante-->
-        <div class="columna col-12 col-md-4">
-          <i class="bi bi-laptop"></i>
-          <p class="experiencia-titulo">Estudiante</p>
-          <p>En preparación para obtener la certificación CCNA</p>
-          <div class="badges-contenedor">
-            <span class="badge bg-primary">Harmon Hall (Nivel B1)</span>
-            <span class="badge bg-primary">NetAcad</span>
-            <span class="badge bg-primary">ITNM</span>
-            <span class="badge bg-primary">Udemy</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--PROYECTOS-->
-  <section id="proyectos" class="proyectos-recientes seccion-oscura d-flex flex-column">
-    <h2 class="seccion-titulo texto-claro">Mis proyectos</h2>
-    <h3 class="seccion-descripcion">Estos son algunos de los proyectos que he creado recientemente</h3>
-    <!--GALERIA DE PROYECTOS-->
-    <div class="container texto-center proyectos-contenedor">
-      <div class="row">
-        <!--PROYECTO 1-->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="proyecto">
-            <img src="img/hacker.png" alt="script">
-            <div class="overlay">
-              <p>Proyecto 1</p>
-              <div class="iconos-contenedor">
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-github"></i>
-                </a>
-                <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-laptop"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--PROYECTO 2-->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="proyecto">
-            <img src="img/redteam.png" alt="script">
-            <div class="overlay">
-              <p>Proyecto 2</p>
-              <div class="iconos-contenedor">
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-github"></i>
-                </a>
-                <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-laptop"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--PROYECTO 3-->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="proyecto">
-            <img src="img/hacker.png" alt="script">
-            <div class="overlay">
-              <p>Proyecto 3</p>
-              <div class="iconos-contenedor">
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-github"></i>
-                </a>
-                <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-laptop"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--BOTON PARA PROYECTOS FUTUROS
-      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-        <button type="button" class="btn btn-info">
-          Ver más proyectos
-          <i class="bi bi-arrow-right-circle-fill"></i>
-        </button>
-      </a>
-      -->
-  </section>
-
-  <!--CONTACTO -->
-  <section id="contacto" class="contacto seccion-clara">
-    <div class="container">
-      <div class="container text-center rectangulo d-flex justify-content-evenly">
-        <div class="row">
-          <div class="col-12 col-md-4 seccion-titulo">
-            ¡Contactame!
-          </div>
-          <div class="col-12 col-md-4 descripcion">
-            Contáctame y hagamos tu proyecto realidad.
-          </div>
-          <div class="col-12 col-md-4">
-            <a href="mailto:gerardperezsanchez@gmail.com">
-              <button type="button">
-                Contacto
-                <i class="bi bi-envelope-check-fill"></i>
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pie de pagina (footer) -->
-  <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
-    <img class="footer-logo" src="img/logo1.png" alt="Logo del portafolio">
-    <p class="footer-texto text-center">Cada día es una oportunidad para mejorar.</p>
-    <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
-      <a href="https://github.com/GerardoSalvador" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/jgsps/" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-linkedin"></i>
-      </a>
-      <a href="mailto:gerardperezsanchez@gmail.com" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-envelope"></i>
-      </a>
-    </div>
-    <div class="derechos-de-autor">Gerardo Salvador</div>
-  </footer>
-
-  <!--JAVASCRIPT-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
 </body>
-
 </html>
