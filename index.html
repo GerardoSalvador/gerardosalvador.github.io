@@ -1,145 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pentester: Gerard0Salvad0r</title>
-  <style>
-    :root{
-      --bg:#0b0f14;
-      --card:#0f1720;
-      --accent:#00d1b2;
-      --muted:#9aa5b1;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,209,178,0.05), transparent),
-                  radial-gradient(1000px 500px at 90% 90%, rgba(0,122,255,0.03), transparent),
-                  var(--bg);
-      color:#e6eef3;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Fiesta de Superhéroes · Batman + Spider-Man</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.04);
-      box-shadow: 0 10px 30px rgba(2,6,23,0.7);
-      padding:32px 40px;
-      border-radius:14px;
-      text-align:center;
-      max-width:780px;
-      width:90%;
-    }
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-    .eyebrow{
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:1px;
-      text-transform:uppercase;
-      margin-bottom:10px;
-    }
+        .hero-card {
+            max-width: 600px;
+            width: 100%;
+            background: #0f0f13;
+            border-radius: 64px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 2px #e23636, 0 0 0 5px #1a1a2e;
+        }
 
-    h1{
-      margin:0;
-      font-size: clamp(28px, 6vw, 48px);
-      line-height:1.02;
-      letter-spacing: -0.02em;
-      display:inline-block;
-      padding-right:6px;
-      white-space:nowrap;
-    }
+        .heroes-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px 25px 20px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f13 100%);
+        }
 
-    /* typing effect */
-    .typing{
-      display:inline-block;
-      border-right: 3px solid var(--accent);
-      padding-right: 6px;
-      animation: caret 0.8s steps(1) infinite;
-      overflow:hidden;
-      vertical-align:middle;
-      max-width:100%;
-    }
+        .hero-single {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 40px;
+            padding: 15px;
+            backdrop-filter: blur(4px);
+        }
 
-    @keyframes caret {
-      50% { border-color: transparent; }
-    }
+        .hero-single:nth-child(2) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
 
-    /* flicker in */
-    .reveal {
-      animation: revealIn 600ms ease forwards;
-      opacity:0;
-      transform: translateY(8px) scale(0.995);
-    }
-    @keyframes revealIn {
-      to { opacity:1; transform:none; }
-    }
+        .hero-photo {
+            width: 140px;
+            height: 140px;
+            background: #1a1a1a;
+            border-radius: 35px;
+            overflow: hidden;
+            border: 3px solid #e23636;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            flex-shrink: 0;
+        }
 
-    p.lead{
-      color:var(--muted);
-      margin-top:14px;
-      margin-bottom:18px;
-    }
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .meta{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      align-items:center;
-      margin-top:14px;
-    }
+        .hero-name {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 0 #e23636;
+            letter-spacing: 2px;
+        }
 
-    .pill{
-      font-size:13px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.02);
-      color:var(--muted);
-    }
+        .hero-name span {
+            font-size: 0.9rem;
+            display: block;
+            color: #e23636;
+            font-weight: normal;
+            text-shadow: none;
+        }
 
-    @media (prefers-reduced-motion: reduce) {
-      .typing { animation: none; border-color: var(--accent); }
-      .reveal { animation: none; opacity:1; transform:none; }
-    }
-  </style>
+        .info-section {
+            padding: 25px;
+            text-align: center;
+            background: #0a0a0c;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(95deg, #e23636, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .details-box {
+            background: #1a1a1f;
+            border-radius: 40px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #e23636;
+            border-right: 4px solid #2d2d44;
+        }
+
+        .detail-row {
+            color: #e0e0e0;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 60px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .btn-maps {
+            background: #1a1a2e;
+            border: 1px solid #e23636;
+            color: #e23636;
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: #000;
+        }
+
+        .btn:hover {
+            transform: scale(0.97);
+            filter: brightness(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 550px) {
+            .hero-photo { width: 100px; height: 100px; }
+            .hero-name { font-size: 1.3rem; }
+            .hero-single { gap: 12px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="card reveal" role="region" aria-label="Mensaje principal">
-    <div class="eyebrow">José Gerardo Salvador Pérez Sánchez</div>
-    <h1>
-      <span class="typing" id="type">Proximo pentester trabajando</span>
-    </h1>
-    <p class="lead">Enfocado en pruebas de penetración, investigación y automatización. ¿Quieres ver proyectos?</p>
-
-    <div class="meta" aria-hidden="true">
-      <span class="pill">eJPT</span>
-      <span class="pill">GitHub</span>
-      <span class="pill">HTB / THM</span>
+    <div class="hero-card">
+        <div class="heroes-showcase">
+            <div class="hero-single">
+                <div class="hero-photo">
+                    <img src="https://i.pinimg.com/736x/42/e6/b4/42e6b484930e3bbc330610da34d4648b.jpg" alt="Batman" onerror="this.src='https://placehold.co/140x140/black/white?text=BATMAN'">
+                </div>
+                <div class="hero-name">BATMAN<br><span>El Caballero de la Noche</span></div>
+            </div>
+            <div class="hero-single">
+                <div class="hero-photo">
+                    <img src="https://m.media-amazon.com/images/S/pv-target-images/0c9bdf20b4bc5ba67b9c3628f3b24d8409b9322c3e8ba558c875da0c007f1029._SX1080_FMjpg_.jpg" alt="Spider-Man" onerror="this.src='https://placehold.co/140x140/red/white?text=SPIDERMAN'">
+                </div>
+                <div class="hero-name">SPIDER-MAN<br><span>El Héroe Vecinal</span></div>
+            </div>
+        </div>
+        <div class="info-section">
+            <div class="title">⚡ ¡PODER INFANTIL!⚡</div>
+            <div class="details-box">
+                <div class="detail-row">🦇 <strong id="kidName">Mauricio</strong> cumple <strong id="kidAge">7</strong> años 🕷️</div>
+                <div class="detail-row">📅 <strong id="eventDate">DOMINGO 31 DE MAYO</strong> - <strong id="eventTime">4:00 PM</strong> 📅</div>
+                <div class="detail-row">📍 <strong id="eventAddress">CALLE NEPTUNO ED. G, DEPT 01, FRACC. VILLA EL CIELO, VILLAHERMOSA</strong> 📍</div>
+            </div>
+            <div class="button-group">
+                <a href="#" id="mapsBtn" class="btn btn-maps">🗺️ ¿CÓMO LLEGAR?</a>
+                <a href="#" id="waBtn" class="btn btn-wa">💬 CONFIRMAR ASISTENCIA</a>
+            </div>
+        </div>
+        <div class="footer">🦸‍♂️ ¡ NO FALTES ! 🦸‍♀️</div>
     </div>
-  </div>
 
-  <script>
-    // efecto opcional: "typewriter" que escribe / borra la frase (no necesario)
-    (function(){
-      const el = document.getElementById('type');
-      const text = 'Proximo pentester trabajando';
-      let i = 0, forward = true;
-      // escribimos todo y dejamos fijo; si quieres que parpadee + borre, cambia forward logic
-      function type(){
-        i++;
-        el.textContent = text.slice(0, i);
-        if(i >= text.length) return; // detener al completar
-        setTimeout(type, 50);
-      }
-      // inicia
-      type();
-    })();
-  </script>
+    <script>
+        // ========== EDITAR AQUÍ ==========
+        const conf = {
+            name: "MAURICIO",
+            age: "7",
+            date: "DOMINGO 31 DE MAYO",
+            time: "4:00 PM",
+            address: "CALLE NEPTUNO ED. G, DEPT 01, FRACC. VILLA EL CIELO, VILLAHERMOSA",
+            mapsUrl: "https://maps.app.goo.gl/tEcDwp8QQwHo4C3Y6",
+            waPhone: "529932919089",
+            waMsg: "Hola, confirmo mi asistencia a la fiesta de Mauricio 🎉"
+        };
+        // =================================
+
+        document.getElementById('kidName').innerText = conf.name;
+        document.getElementById('kidAge').innerText = conf.age;
+        document.getElementById('eventDate').innerText = conf.date;
+        document.getElementById('eventTime').innerText = conf.time;
+        document.getElementById('eventAddress').innerText = conf.address;
+        document.getElementById('mapsBtn').href = conf.mapsUrl;
+        document.getElementById('waBtn').href = `https://wa.me/${conf.waPhone}?text=${encodeURIComponent(conf.waMsg)}`;
+    </script>
 </body>
 </html>
