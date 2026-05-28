@@ -30,6 +30,22 @@
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 2px #e23636, 0 0 0 5px #1a1a2e;
         }
 
+        /* Estilos para el contenedor del video */
+        .video-container {
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 9 / 16; /* Para mantener proporción vertical 9:16 */
+            object-fit: cover;
+        }
+
         .heroes-showcase {
             display: flex;
             flex-direction: column;
@@ -172,6 +188,14 @@
 </head>
 <body>
     <div class="hero-card">
+        <!-- Video vertical agregado aquí -->
+        <div class="video-container">
+            <video controls playsinline poster="https://placehold.co/600x1067/1a1a2e/white?text=Dale+a+Play">
+                <source src="cumple.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+        
         <div class="heroes-showcase">
             <div class="hero-single">
                 <div class="hero-photo">
