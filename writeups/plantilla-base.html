@@ -321,12 +321,12 @@
         <!-- Descripción corta -->
         <!-- 👇 Descripción corta del lab -->
         <p class="text-gray-400 leading-relaxed mb-6">
-          Diseñar, configurar e implementar una topología de red segmentada y segura desde cero, la cuál será para prácticas de ciberseguridad, aislando el tráfico de laboratorio de la red personal del host (máquina que virtualiza). Se configuró OPNsense como firewall principal con tres interfaces: WAN, LAN Test y Admin.
+          Diseñar, configurar e implementar una topología de red segmentada y segura para prácticas de ciberseguridad, aislando el tráfico de laboratorio de la red personal del host (máquina que virtualiza). Se configuró OPNsense como firewall principal con tres interfaces: WAN, LAN Test y Admin.
         </p>
 
         <!-- CTA: Descargar PDF -->
         <!-- 👇 Ruta del PDF -->
-        <a href="#" target="_blank"
+        <a href="../assets/writeups-pdf/lab1-segmentacion.pdf" target="_blank"
            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-gray-300 text-sm font-medium hover:border-accent hover:text-accent transition-colors">
           <i class="fa-solid fa-file-pdf"></i>
           Descargar PDF
@@ -351,27 +351,12 @@
 
         <h2>Reconocimiento</h2>
         <p>
-          Antes de empezar, definimos los requisitos del laboratorio.
-        </p>
-
-        <p>
-          Requisitos técnicos:
+          Antes de empezar, definimos los requisitos del laboratorio:
         </p>
         <ul>
           <li>Aislamiento total del tráfico de laboratorio.</li>
-          <li>Acceso a Internet de máquinas dentro de la LAN sin acceso a red de gestión.</li>
           <li>Capacidad de simular ataques y tráfico malicioso sin riesgo.</li>
           <li>Red administrativa separada para gestión del firewall.</li>
-        </ul>
-
-        <p>
-          Requisitos de software:
-        </p>
-        <ul>
-          <li>VMware Workstation Pro</li>
-          <li><a href="https://opnsense.org/download/">OPNsense-26.7-dvd-amd64.iso</a></li>
-          <li><a href="https://www.kali.org/get-kali/#kali-installer-images/">kali-linux-2026.2-installer-amd64.iso</a></li>
-          <li><a href="https://ubuntu.com/download/server/thank-you?version=26.04.1&architecture=amd64&lts=true">ubuntu-26.04.1-live-server-amd64.iso</a></li>
         </ul>
 
         <h3>Topología objetivo</h3>
@@ -380,42 +365,35 @@
         </p>
         <div class="code-block">
           <span class="comment"># Segmentos de red</span><br>
-            WAN    → em0  → 192.168.174.0/24   <span class="comment">(salida a internet simulado por VMnet8(NAT))</span><br>
-            LAN    → em1  → 192.168.1.0/24     <span class="comment">(máquinas de pruebas / víctimas)</span><br>
-            Admin  → em2  → 192.168.2.0/24     <span class="comment">(gestión de OPNsense simulado por VMnet1(Host-Only))</span>
+            WAN    → 192.168.174.0/24  <span class="comment">(salida a internet simulado por VMnet8(NAT))</span><br>
+            LAN    → 192.168.1.0/24     <span class="comment">(máquinas de pruebas / víctimas)</span><br>
+            Admin  → 192.168.2.0/24     <span class="comment">(gestión de OPNsense simulado por VMnet1(Host-Only))</span>
         </div>
 
+        <h2>Enumeración</h2>
+        <p>
+          Una vez levantada la VM de OPNsense, accedemos vía consola y verificamos las interfaces detectadas:
+        </p>
+
+        <h3>Verificación de interfaces</h3>
+        <div class="code-block">
+<span class="prompt">$</span> ifconfig -a
+<span class="comment"># Salida esperada: em0 (WAN), em1 (LAN), em2 (Admin)</span>
+        </div>
+
+        <h3>Escaneo inicial con Nmap</h3>
+        <p>
+          Desde una VM Kali conectada a la LAN, escaneamos el gateway para confirmar servicios activos:
+        </p>
+        <div class="code-block">
+<span class="prompt">$</span> nmap -sV -p- 10.10.10.1
+<span class="comment"># Puertos esperados: 80 (WebGUI), 443 (HTTPS), 22 (SSH opcional)</span>
+        </div>
 
         <h2>Configuración</h2>
-
-        <h3>Virtualización</h3>
-        <p><code>OPNsense</code></p>
-        <ul>
-          <li>RAM: 1GB</li>
-          <li>Procesadores: 2</li>
-          <li>SSD: 20GB</li>
-          <li>Network Adapter 1: NAT</li>
-          <li>Network Adapter 2: LAN Segment(LAN TEST)</li>
-          <li>Network Adapter 3: Host Only</li>
-        </ul>
-
-        <p><code>Ubuntu Server</code></p>
-        <ul>
-          <li>RAM: 1GB</li>
-          <li>Procesadores: 4</li>
-          <li>SSD: 20GB</li>
-          <li>Network Adapter 1: LAN Segment(LAN TEST)</li>
-        </ul>
-
-        <p><code>Kali Linux</code></p>
-        <ul>
-          <li>RAM: 4GB</li>
-          <li>Procesadores: 4</li>
-          <li>SSD: 40GB</li>
-          <li>Network Adapter 1: LAN Segment(LAN TEST)</li>
-        </ul>
-
-        <h3>Configuración de firewall</h3>
+        <p>
+          Configuramos OPNsense paso a paso: asignación de interfaces, reglas de firewall, NAT y DNS.
+        </p>
 
         <h3>Reglas de firewall</h3>
         <ul>
@@ -440,13 +418,13 @@ Redirect target port: 443
         </p>
 
         <div class="code-block">
-          <span class="comment"># Desde Kali (LAN)</span>
-          <span class="prompt">$</span> ping -c 3 8.8.8.8
-          <span class="comment"># Debe funcionar por la regla de NAT</span>
-          <br>
-          <span class="comment"># Desde Admin</span>
-          <span class="prompt">$</span> curl -k https://10.10.20.1
-          <span class="comment"># Debe devolver la WebGUI de OPNsense</span>
+<span class="comment"># Desde Kali (LAN)</span>
+<span class="prompt">$</span> ping -c 3 8.8.8.8
+<span class="comment"># Debe funcionar por la regla de NAT</span>
+
+<span class="comment"># Desde Admin</span>
+<span class="prompt">$</span> curl -k https://10.10.20.1
+<span class="comment"># Debe devolver la WebGUI de OPNsense</span>
         </div>
 
         <h2>Conclusión</h2>
