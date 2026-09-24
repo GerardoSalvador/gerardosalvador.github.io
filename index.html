@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- === Título & Descripción === -->
+    <title>Gerardo Salvador | Ciberseguridad & Labs</title>
+    <meta name="description" content="Portafolio de ciberseguridad: Laboratorios en VMware, Hack The Box, Try Hack Me, OverTheWire y futuras certificaciones.">
+    <link rel="canonical" href="https://gerardosalvador.github.io/">
+
+    <!-- === Autor & Keywords === -->
+    <meta name="author" content="José Gerardo Salvador Pérez Sánchez">
+    <meta name="keywords" content="ciberseguridad, pentesting, HTB, TryHackMe, VMware, writeups">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0d1117">
+
+    <!-- === Seguridad === -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- === Open Graph (Facebook, LinkedIn, WhatsApp, Discord) === -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gerardosalvador.github.io/">
+    <meta property="og:title" content="Gerardo Salvador | Ciberseguridad & Labs">
+    <meta property="og:description" content="Portafolio de ciberseguridad: laboratorios en VMware, Hack The Box, TryHackMe, OverTheWire y próximas certificaciones.">
+    <meta property="og:image" content="https://gerardosalvador.github.io/assets/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Gerardo Salvador — Ciberseguridad, Pentesting y Labs">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Gerardo Salvador">
+
+    <!-- === Favicons === -->
+    <link rel="icon" href="/assets/img/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/img/site.webmanifest">
+
+    <!-- === Schema.org — Person === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "José Gerardo Salvador Pérez Sánchez",
+      "alternateName": "Gerardo Salvador",
+      "url": "https://gerardosalvador.github.io/",
+      "image": "https://gerardosalvador.github.io/assets/img/profile.jpg",
+      "jobTitle": "Ingeniero en Sistemas Computacionales",
+      "description": "Ingeniero en Sistemas Computacionales enfocado en ciberseguridad defensiva, con experiencia en laboratorios de redes, firewalls, servidores y entornos virtualizados.",
+      "knowsAbout": [
+        "Ciberseguridad",
+        "Seguridad defensiva",
+        "Pentesting",
+        "Redes TCP/IP",
+        "Firewalls (OPNsense, Fortigate)",
+        "Linux (Ubuntu, Kali, Parrot)",
+        "Windows Server",
+        "VMware",
+        "VirtualBox",
+        "Wireshark",
+        "Nmap",
+        "Hack The Box",
+        "TryHackMe",
+        "OverTheWire"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Tecnológico Nacional de México Campus Villahermosa"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/jgsps",
+        "https://github.com/gerardosalvador",
+        "https://instagram.com/gerard0salvad0r"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "FCF — Certified Fundamentals in Cybersecurity",
+          "credentialCategory": "certificate",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Fortinet"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Introducción a Linux",
+          "credentialCategory": "certificate",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Hack4u"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Personalización de Linux",
+          "credentialCategory": "certificate",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Hack4u"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Análisis de Datos",
+          "credentialCategory": "certificate",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Santander Open Academy"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- === Fuentes === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- === Tailwind (CDN v3) === -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+            colors: {
+                base:    '#0d1117',
+                surface: '#161b22',
+                border:  '#30363d',
+                accent:  '#22d3ee',
+                accent2: '#a78bfa',
+                danger:  '#f87171',
+                success: '#4ade80',
+            },
+            fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                mono: ['JetBrains Mono', 'monospace'],
+            },
+            },
+        },
+        };
+    </script>
+
+    <!-- === Estilos de tarjetas de Labs (flip 3D en todas las vistas) === -->
+    <style>
+      /* Truncar textos */
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* === Badges === */
+      .badge-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 0.25rem 0.625rem;
+        border-radius: 9999px;
+        border-width: 1px;
+      }
+
+      .badge-lab       { background: rgba(34,211,238,0.12);  color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+      .badge-machine   { background: rgba(167,139,250,0.12); color: #a78bfa; border-color: rgba(167,139,250,0.4); }
+      .badge-easy      { background: rgba(74,222,128,0.12);  color: #4ade80; border-color: rgba(74,222,128,0.4); }
+      .badge-medium    { background: rgba(251,191,36,0.12);  color: #fbbf24; border-color: rgba(251,191,36,0.4); }
+      .badge-hard      { background: rgba(248,113,113,0.12); color: #f87171; border-color: rgba(248,113,113,0.4); }
+      .badge-insane    { background: rgba(167,139,250,0.12); color: #a78bfa; border-color: rgba(167,139,250,0.4); }
+      .badge-htb       { background: rgba(159,239,0,0.12);   color: #9fef00; border-color: rgba(159,239,0,0.4); }
+      .badge-thm       { background: rgba(196,17,62,0.15);   color: #ff3b6b; border-color: rgba(196,17,62,0.4); }
+      .badge-os-linux  { background: rgba(250,204,21,0.10);  color: #facc15; border-color: rgba(250,204,21,0.3); }
+      .badge-os-windows{ background: rgba(96,165,250,0.12);  color: #60a5fa; border-color: rgba(96,165,250,0.35); }
+
+      /* =====================================================
+         FLIP 3D — altura consistente en ambas caras
+         ===================================================== */
+
+      .lab-card {
+        perspective: 1200px;
+        height: 26rem;          /* altura fija del contenedor */
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .lab-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;           /* 100% del padre (26rem) */
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+        transform: rotateY(0deg);
+      }
+
+      /* Flip por hover (desktop) */
+      @media (hover: hover) {
+        .lab-card:hover .lab-card-inner {
+          transform: rotateY(180deg);
+        }
+      }
+
+      /* Flip por click/tap (móvil/tablet) */
+      .lab-card.is-flipped .lab-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      /* ===== Caras: MISMO tamaño (100% del contenedor) ===== */
+      .lab-card-face {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;           /* altura completa garantizada */
+        border-radius: 0.75rem;
+        overflow: hidden;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Frontal — sin rotación */
+      .lab-card-front {
+        transform: rotateY(0deg);
+      }
+
+      /* Trasera — rotada 180° */
+      .lab-card-back {
+        transform: rotateY(180deg);
+        position: relative;
+        /* Centrado vertical y horizontal del contenido */
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+      }
+
+      /* =====================================================
+         FONDO DIFUMINADO EN LA CARA TRASERA
+         ===================================================== */
+      .lab-card-back::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--bg-img);
+        background-size: cover;
+        background-position: center;
+        filter: blur(20px) brightness(0.4);
+        transform: scale(1.2);
+        z-index: 0;
+      }
+
+      /* Overlay oscuro encima */
+      .lab-card-back::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(13, 17, 23, 0.15),
+          rgba(13, 17, 23, 0.30)
+        );
+        z-index: 1;
+      }
+
+      /* El contenido (botones) va por encima */
+      .lab-card-back > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Scroll interno */
+      .lab-card-desc::-webkit-scrollbar { width: 4px; }
+      .lab-card-desc::-webkit-scrollbar-track { background: transparent; }
+      .lab-card-desc::-webkit-scrollbar-thumb {
+        background: #30363d;
+        border-radius: 2px;
+      }
+      .lab-card-desc::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
+
+      /* Accesibilidad */
+      @media (prefers-reduced-motion: reduce) {
+        .lab-card-inner { transition: none; }
+      }
+    </style>
+
+    <!-- === Iconos (Font Awesome) === -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+
+</head>
+
+
+
+<body class="bg-base text-gray-200 font-sans antialiased">
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-base/95 backdrop-blur-sm">
+    <nav class="max-w-5xl mx-auto px-6">
+      <div class="flex items-center justify-between h-14">
+
+        <a href="#inicio" class="text-md font-semibold tracking-tight text-gray-100 hover:text-accent2 transition-colors">GS</a>
+
+        <ul class="hidden md:flex items-center gap-1 text-sm">
+          <li><a href="#inicio" class="px-3 py-1.5 rounded-full bg-surface text-accent font-medium">Inicio</a></li>
+          <li><a href="#sobre-mi" class="px-3 py-1.5 rounded-full text-gray-400 hover:text-gray-100 hover:bg-surface transition-colors">Sobre mí</a></li>
+          <li><a href="#labs" class="px-3 py-1.5 rounded-full text-gray-400 hover:text-gray-100 hover:bg-surface transition-colors">Labs</a></li>
+          <li><a href="#contacto" class="px-3 py-1.5 rounded-full text-gray-400 hover:text-gray-100 hover:bg-surface transition-colors">Contacto</a></li>
+        </ul>
+
+        <button id="menu-toggle" aria-label="Abrir menú"
+                class="md:hidden text-gray-300 hover:text-accent transition-colors">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden hidden pb-4">
+        <ul class="flex flex-col gap-1 text-sm">
+          <li><a href="#inicio" class="block px-3 py-2 rounded-lg bg-surface text-accent font-medium">Inicio</a></li>
+          <li><a href="#sobre-mi" class="block px-3 py-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-surface transition-colors">Sobre mí</a></li>
+          <li><a href="#labs" class="block px-3 py-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-surface transition-colors">Labs</a></li>
+          <li><a href="#contacto" class="block px-3 py-2 rounded-lg text-gray-400 hover:text-gray-100 hover:bg-surface transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- SECCIÓN: Inicio -->
+    <section id="inicio" class="scroll-mt-20 min-h-screen flex items-center px-6 relative overflow-hidden">
+
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute inset-0 opacity-[0.07]"
+             style="background-image:
+               linear-gradient(to right, #22d3ee 1px, transparent 1px),
+               linear-gradient(to bottom, #22d3ee 1px, transparent 1px);
+               background-size: 40px 40px;"></div>
+        <div class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-20"
+             style="background: radial-gradient(circle, #22d3ee, transparent 70%);"></div>
+        <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-15"
+             style="background: radial-gradient(circle, #a78bfa, transparent 70%);"></div>
+      </div>
+
+      <div class="max-w-5xl mx-auto w-full">
+
+        <p class="text-accent font-mono text-sm mb-4">
+          <span class="text-gray-500">$</span> // bienvenido
+        </p>
+
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-100 tracking-tight mb-4">
+          Gerardo Salvador
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-400 mb-6 font-medium">
+          Ciberseguridad <span class="text-accent">·</span>
+          Pentesting <span class="text-accent">·</span>
+          Labs & Writeups
+        </p>
+
+        <p class="text-base md:text-lg text-gray-500 max-w-2xl mb-10 leading-relaxed">
+          "Explorando y documentando configuraciones, defensas y vulnerabilidades de ciberseguridad"
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-12">
+          <a href="#labs"
+             class="px-6 py-3 rounded-lg bg-accent text-base font-semibold hover:bg-accent/90 transition-colors inline-flex items-center gap-2">
+            <i class="fa-solid fa-flask"></i>
+            Ver Labs
+          </a>
+          <a href="https://wa.me/529934444323" target="_blank" rel="noopener"
+             class="px-6 py-3 rounded-lg border border-border text-gray-200 font-semibold hover:border-accent hover:text-accent transition-colors inline-flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp"></i>
+            Contáctame
+          </a>
+        </div>
+
+        <div class="flex items-center gap-5 text-xl">
+          <a href="https://www.linkedin.com/in/jgsps" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-gray-500 hover:text-accent transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/gerardosalvador" target="_blank" rel="noopener" aria-label="GitHub" class="text-gray-500 hover:text-accent transition-colors"><i class="fa-brands fa-github"></i></a>
+          <a href="https://instagram.com/gerard0salvad0r" target="_blank" rel="noopener" aria-label="Instagram" class="text-gray-500 hover:text-accent transition-colors"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:gerardperezsanchez@gmail.com" aria-label="Correo" class="text-gray-500 hover:text-accent transition-colors"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: Sobre mí -->
+    <section id="sobre-mi" class="scroll-mt-20 min-h-screen px-6 py-24 relative overflow-hidden">
+
+      <div class="max-w-5xl mx-auto w-full">
+
+        <p class="text-accent font-mono text-sm mb-4">
+          <span class="text-gray-500">$</span> // sobre mí
+        </p>
+
+        <div class="grid md:grid-cols-[220px_1fr] gap-10 items-start mb-20">
+          <div class="mx-auto md:mx-0">
+            <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border border-border bg-surface">
+              <img src="assets/img/profile.jpg" alt="Gerardo Salvador" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-1">
+              José Gerardo Salvador Pérez Sánchez
+            </h2>
+            <p class="text-accent font-medium mb-6">
+              Ingeniero en Sistemas Computacionales
+            </p>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Ingeniero en Sistemas Computacionales egresado del TecNM Campus Villahermosa, con enfoque en ciberseguridad defensiva.
+            </p>
+            <p class="text-gray-400 leading-relaxed">
+              Me motiva entender cómo funcionan los sistemas por dentro para protegerlos mejor: desde redes y firewalls hasta endpoints y servidores. Documento cada laboratorio y aprendizaje en este sitio.
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-20">
+          <h3 class="text-xl font-bold text-gray-100 mb-6 flex items-center gap-3">
+            <i class="fa-solid fa-terminal text-accent"></i>
+            Skills
+          </h3>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div class="bg-surface border border-border rounded-xl p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-desktop text-accent"></i>
+                <h4 class="font-semibold text-gray-100 text-sm">Sistemas Operativos</h4>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Linux (Ubuntu, Kali, Parrot)</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Windows Server</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">macOS / iOS</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Android</span>
+              </div>
+            </div>
+
+            <div class="bg-surface border border-border rounded-xl p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-network-wired text-accent"></i>
+                <h4 class="font-semibold text-gray-100 text-sm">Redes & Seguridad</h4>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">TCP/IP</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Wireshark</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Nmap</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">OPNsense</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Fortigate</span>
+              </div>
+            </div>
+
+            <div class="bg-surface border border-border rounded-xl p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-code text-accent"></i>
+                <h4 class="font-semibold text-gray-100 text-sm">Lenguajes</h4>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Python</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Bash</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">SQL</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">JavaScript</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">C#</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Java</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">C++</span>
+              </div>
+            </div>
+
+            <div class="bg-surface border border-border rounded-xl p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-server text-accent"></i>
+                <h4 class="font-semibold text-gray-100 text-sm">Infraestructura</h4>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">VMware</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">VirtualBox</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Synology</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">PBX UCM</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Cisco</span>
+              </div>
+            </div>
+
+            <div class="bg-surface border border-border rounded-xl p-5 sm:col-span-2 lg:col-span-1">
+              <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-flag text-accent"></i>
+                <h4 class="font-semibold text-gray-100 text-sm">Plataformas de Práctica</h4>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">Hack The Box</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">TryHackMe</span>
+                <span class="text-xs px-2 py-1 rounded-md bg-base text-gray-400 border border-border">OverTheWire</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-100 mb-6 flex items-center gap-3">
+            <i class="fa-solid fa-certificate text-accent"></i>
+            Certificaciones
+          </h3>
+
+          <div class="mb-10">
+            <div class="flex items-center gap-2 mb-4">
+              <i class="fa-solid fa-circle-check text-success text-sm"></i>
+              <h4 class="text-sm font-semibold text-gray-200 uppercase tracking-wider">Completadas</h4>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-border bg-surface">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-border text-left text-xs text-gray-500 uppercase">
+                    <th class="px-4 py-3 font-medium">Fecha</th>
+                    <th class="px-4 py-3 font-medium">Emisor</th>
+                    <th class="px-4 py-3 font-medium">Certificación</th>
+                    <th class="px-4 py-3 font-medium">Validación</th>
+                    <th class="px-4 py-3 font-medium text-right">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-300">
+
+                  <tr class="border-b border-border/50 hover:bg-base/90 transition-colors">
+                    <td class="px-4 py-3 whitespace-nowrap text-gray-500">03/09/2025</td>
+                    <td class="px-4 py-3"><a href="https://hack4u.io/" target="_blank" class="hover:text-accent transition-colors">Hack4u</a></td>
+                    <td class="px-4 py-3">Introducción a Linux</td>
+                    <td class="px-4 py-3 font-mono text-xs text-gray-500">9397-3152-9280-7086</td>
+                    <td class="px-4 py-3">
+                      <div class="flex justify-end gap-3 text-base text-gray-500">
+                        <a href="https://hack4u.io/check-certificate/" target="_blank" aria-label="Verificar" class="hover:text-accent transition-colors"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="assets/certs/hack4u-intro-linux.jpg" target="_blank" aria-label="Ver PDF" class="hover:text-danger transition-colors"><i class="fa-solid fa-file-pdf"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="hover:bg-base/90 transition-colors">
+                    <td class="px-4 py-3 whitespace-nowrap text-gray-500">03/09/2025</td>
+                    <td class="px-4 py-3"><a href="https://hack4u.io/" target="_blank" class="hover:text-accent transition-colors">Hack4u</a></td>
+                    <td class="px-4 py-3">Personalización de Linux</td>
+                    <td class="px-4 py-3 font-mono text-xs text-gray-500">7638-6138-8179-4232</td>
+                    <td class="px-4 py-3">
+                      <div class="flex justify-end gap-3 text-base text-gray-500">
+                        <a href="https://hack4u.io/check-certificate/" target="_blank" aria-label="Verificar" class="hover:text-accent transition-colors"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="assets/certs/hack4u-personalizacion-linux.jpg" target="_blank" aria-label="Ver PDF" class="hover:text-danger transition-colors"><i class="fa-solid fa-file-pdf"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b border-border/50 hover:bg-base/90 transition-colors">
+                    <td class="px-4 py-3 whitespace-nowrap text-gray-500">07/04/2025</td>
+                    <td class="px-4 py-3"><a href="https://training.fortinet.com/" target="_blank" class="hover:text-accent transition-colors">Fortinet</a></td>
+                    <td class="px-4 py-3">FCF - Certified Fundamentals in Cybersecurity</td>
+                    <td class="px-4 py-3 font-mono text-xs text-gray-500">4442807562JP</td>
+                    <td class="px-4 py-3">
+                      <div class="flex justify-end gap-3 text-base text-gray-500">
+                        <a href="https://training.fortinet.com/admin/tool/certificate/index.php" target="_blank" aria-label="Verificar" class="hover:text-accent transition-colors"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="assets/certs/fortinet-fcf.pdf" target="_blank" aria-label="Ver PDF" class="hover:text-danger transition-colors"><i class="fa-solid fa-file-pdf"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b border-border/50 hover:bg-base/90 transition-colors">
+                    <td class="px-4 py-3 whitespace-nowrap text-gray-500">15/01/2025</td>
+                    <td class="px-4 py-3"><a href="https://www.santanderopenacademy.com/es/index.html" target="_blank" class="hover:text-accent transition-colors">Santander</a></td>
+                    <td class="px-4 py-3">Análisis de Datos</td>
+                    <td class="px-4 py-3 font-mono text-xs text-gray-500">OA-2025-0115000738429</td>
+                    <td class="px-4 py-3">
+                      <div class="flex justify-end gap-3 text-base text-gray-500">
+                        <a href="https://www.santanderopenacademy.com/es/index.html" target="_blank" aria-label="Verificar" class="hover:text-accent transition-colors"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <a href="assets/certs/santander-analisis-datos.pdf" target="_blank" aria-label="Ver PDF" class="hover:text-danger transition-colors"><i class="fa-solid fa-file-pdf"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="mb-10">
+            <div class="flex items-center gap-2 mb-4">
+              <i class="fa-solid fa-circle-half-stroke text-accent text-sm"></i>
+              <h4 class="text-sm font-semibold text-gray-200 uppercase tracking-wider">En progreso</h4>
+            </div>
+
+            <div class="bg-surface border border-border rounded-xl p-5 flex items-center justify-between gap-4">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-base border border-border flex items-center justify-center">
+                  <i class="fa-solid fa-shield-halved text-accent"></i>
+                </div>
+                <div>
+                  <p class="text-gray-100 font-medium">Security+</p>
+                  <p class="text-xs text-gray-500">CompTIA</p>
+                </div>
+              </div>
+              <span class="text-xs px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/30">
+                En curso
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <i class="fa-solid fa-bullseye text-accent2 text-sm"></i>
+              <h4 class="text-sm font-semibold text-gray-200 uppercase tracking-wider">Planeadas</h4>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="bg-surface border border-border rounded-xl p-5 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-base border border-border flex items-center justify-center">
+                  <i class="fa-solid fa-crosshairs text-accent2"></i>
+                </div>
+                <div>
+                  <p class="text-gray-100 font-medium">eJPT</p>
+                  <p class="text-xs text-gray-500">INE Security</p>
+                </div>
+              </div>
+
+              <div class="bg-surface border border-border rounded-xl p-5 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-base border border-border flex items-center justify-center">
+                  <i class="fa-solid fa-skull text-accent2"></i>
+                </div>
+                <div>
+                  <p class="text-gray-100 font-medium">OSCP</p>
+                  <p class="text-xs text-gray-500">OffSec</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: Labs -->
+        <!-- SECCIÓN: Labs -->
+    <section id="labs" class="scroll-mt-20 min-h-screen px-6 py-24 relative">
+
+      <div class="max-w-5xl mx-auto w-full">
+
+        <p class="text-accent font-mono text-sm mb-4">
+          <span class="text-gray-500">$</span> // labs
+        </p>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-2">
+          Laboratorios & Máquinas
+        </h2>
+        <p class="text-gray-500 mb-10 max-w-2xl">
+          Documentación de laboratorios propios y máquinas resueltas en plataformas como Hack The Box, TryHackMe y OverTheWire.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- ============ TARJETA 1: Lab propio ============ -->
+          <div class="lab-card">
+            <div class="lab-card-inner">
+
+              <!-- CARA FRONTAL -->
+              <div class="lab-card-face lab-card-front bg-surface border border-border hover:border-accent/50 transition-colors group">
+                <div class="relative aspect-square overflow-hidden bg-base">
+                  <img src="assets/img/labs/lab1-segmentacion.jpg"
+                       alt="Lab 1: Segmentación de red"
+                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-accent text-base">
+                    Lab
+                  </span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <h3 class="text-sm font-semibold text-gray-100 leading-snug line-clamp-2 mb-2">
+                    Lab 1: Construcción de Red Segmentada con OPNsense
+                  </h3>
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>21/09/2026</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5 mb-3">
+                    <span class="badge-back badge-lab"><i class="fa-solid fa-flask"></i> Lab</span>
+                    <span class="badge-back badge-os-linux"><i class="fa-brands fa-linux"></i> Linux</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-3">
+                    Diseñar e implementar una topología de red segmentada y segura para prácticas de ciberseguridad, aislando el tráfico de laboratorio de la red personal del host. Se configuró OPNsense como firewall principal con tres interfaces: WAN, LAN Test y Admin.
+                  </p>
+                  <p class="text-[10px] text-gray-500 mt-auto">
+                    🧰 OPNsense · Kali · Ubuntu Server · VMware
+                  </p>
+                </div>
+              </div>
+
+              <!-- CARA TRASERA (solo botones) -->
+              <div class="lab-card-face lab-card-back border border-accent/50" style="--bg-img: url('assets/img/labs/lab1-segmentacion.jpg');">
+                <div class="flex flex-col gap-3 w-full max-w-xs">
+                  <a href="writeups/lab1-segmentacion.html"
+                    class="text-sm font-semibold text-center py-3 rounded-md bg-accent text-base hover:bg-accent/90 transition-colors">
+                    Ver paso a paso
+                  </a>
+                  <a href="assets/writeups-pdf/lab1-segmentacion.pdf" target="_blank"
+                    class="text-sm font-semibold text-center py-3 rounded-md border border-border text-gray-300 hover:border-accent hover:text-accent transition-colors">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Descargar PDF
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- ============ FIN TARJETA 1 ============ -->
+
+
+          <!-- ============ TARJETA 2: Cap (HTB) ============ -->
+          <div class="lab-card">
+            <div class="lab-card-inner">
+              <div class="lab-card-face lab-card-front bg-surface border border-border hover:border-accent2/50 transition-colors group">
+                <div class="relative aspect-square overflow-hidden bg-base">
+                  <img src="assets/img/labs/htb-cap.png" alt="HTB Cap"
+                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-accent2 text-base">
+                    Machine
+                  </span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <h3 class="text-sm font-semibold text-gray-100 leading-snug line-clamp-2 mb-2">Cap</h3>
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>15/08/2026</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5 mb-3">
+                    <span class="badge-back badge-machine"><i class="fa-solid fa-flag"></i> Machine</span>
+                    <span class="badge-back badge-htb"><i class="fa-solid fa-cube"></i> HTB</span>
+                    <span class="badge-back badge-easy"><i class="fa-solid fa-bolt"></i> Easy</span>
+                    <span class="badge-back badge-os-linux"><i class="fa-brands fa-linux"></i> Linux</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-3">
+                    Máquina Easy de Hack The Box. Enumeración de servicios, análisis de captura de tráfico en FTP, escalada de privilegios mediante capabilities de Linux. Retirada oficialmente.
+                  </p>
+                  <p class="text-[10px] text-gray-500 mt-auto">🎯 HTB · Easy · Linux</p>
+                </div>
+              </div>
+
+              <!-- CARA TRASERA (solo botones) -->
+              <div class="lab-card-face lab-card-back border border-accent/50" style="--bg-img: url('assets/img/labs/htb-cap.png');">
+                <div class="flex flex-col gap-3 w-full max-w-xs">
+                  <a href="assets/writeups/cap.html"
+                    class="text-sm font-semibold text-center py-3 rounded-md bg-accent text-base hover:bg-accent/90 transition-colors">
+                    Ver paso a paso
+                  </a>
+                  <a href="assets/writeups-pdf/htb-cap.pdf" target="_blank"
+                    class="text-sm font-semibold text-center py-3 rounded-md border border-border text-gray-300 hover:border-accent hover:text-accent transition-colors">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Descargar PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============ FIN TARJETA 2 ============ -->
+
+
+          <!-- ============ TARJETA 3: Lame (HTB) ============ -->
+          <div class="lab-card">
+            <div class="lab-card-inner">
+              <div class="lab-card-face lab-card-front bg-surface border border-border hover:border-accent2/50 transition-colors group">
+                <div class="relative aspect-square overflow-hidden bg-base">
+                  <img src="assets/img/labs/htb-lame.png" alt="HTB Lame"
+                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-accent2 text-base">
+                    Machine
+                  </span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <h3 class="text-sm font-semibold text-gray-100 leading-snug line-clamp-2 mb-2">Lame</h3>
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>20/08/2026</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5 mb-3">
+                    <span class="badge-back badge-machine"><i class="fa-solid fa-flag"></i> Machine</span>
+                    <span class="badge-back badge-htb"><i class="fa-solid fa-cube"></i> HTB</span>
+                    <span class="badge-back badge-easy"><i class="fa-solid fa-bolt"></i> Easy</span>
+                    <span class="badge-back badge-os-linux"><i class="fa-brands fa-linux"></i> Linux</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-3">
+                    Máquina Easy. Enumeración SMB, explotación de Samba vulnerable (CVE-2007-2447), escalada con Metasploit.
+                  </p>
+                  <p class="text-[10px] text-gray-500 mt-auto">🎯 HTB · Easy · Linux</p>
+                </div>
+              </div>
+
+              <!-- CARA TRASERA (solo botones) -->
+              <div class="lab-card-face lab-card-back border border-accent/50" style="--bg-img: url('assets/img/labs/htb-lame.png')">
+                <div class="flex flex-col gap-3 w-full max-w-xs">
+                  <a href="assets/writeups/lame.html"
+                    class="text-sm font-semibold text-center py-3 rounded-md bg-accent text-base hover:bg-accent/90 transition-colors">
+                    Ver paso a paso
+                  </a>
+                  <a href="assets/writeups-pdf/htb-lame.pdf" target="_blank"
+                    class="text-sm font-semibold text-center py-3 rounded-md border border-border text-gray-300 hover:border-accent hover:text-accent transition-colors">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Descargar PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============ FIN TARJETA 3 ============ -->
+
+
+          <!-- ============ TARJETA 4: Blue (HTB) ============ -->
+          <div class="lab-card">
+            <div class="lab-card-inner">
+              <div class="lab-card-face lab-card-front bg-surface border border-border hover:border-accent2/50 transition-colors group">
+                <div class="relative aspect-square overflow-hidden bg-base">
+                  <img src="assets/img/labs/htb-blue.png" alt="HTB Blue"
+                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-accent2 text-base">
+                    Machine
+                  </span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <h3 class="text-sm font-semibold text-gray-100 leading-snug line-clamp-2 mb-2">Blue</h3>
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>25/08/2026</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5 mb-3">
+                    <span class="badge-back badge-machine"><i class="fa-solid fa-flag"></i> Machine</span>
+                    <span class="badge-back badge-htb"><i class="fa-solid fa-cube"></i> HTB</span>
+                    <span class="badge-back badge-easy"><i class="fa-solid fa-bolt"></i> Easy</span>
+                    <span class="badge-back badge-os-windows"><i class="fa-brands fa-windows"></i> Windows</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-3">
+                    Clásica Easy de HTB. Explotación de EternalBlue (MS17-010) con Metasploit, dump de hashes y cracking.
+                  </p>
+                  <p class="text-[10px] text-gray-500 mt-auto">🎯 HTB · Easy · Windows</p>
+                </div>
+              </div>
+
+              <!-- CARA TRASERA (solo botones) -->
+              <div class="lab-card-face lab-card-back border border-accent/50" style="--bg-img: url('assets/img/labs/htb-blue.png')">
+                <div class="flex flex-col gap-3 w-full max-w-xs">
+                  <a href="assets/writeups/blue.html"
+                    class="text-sm font-semibold text-center py-3 rounded-md bg-accent text-base hover:bg-accent/90 transition-colors">
+                    Ver paso a paso
+                  </a>
+                  <a href="assets/writeups-pdf/htb-blue.pdf" target="_blank"
+                    class="text-sm font-semibold text-center py-3 rounded-md border border-border text-gray-300 hover:border-accent hover:text-accent transition-colors">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Descargar PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============ FIN TARJETA 4 ============ -->
+
+
+          <!-- ============ TARJETA 5: Devel (HTB) ============ -->
+          <div class="lab-card">
+            <div class="lab-card-inner">
+              <div class="lab-card-face lab-card-front bg-surface border border-border hover:border-accent2/50 transition-colors group">
+                <div class="relative aspect-square overflow-hidden bg-base">
+                  <img src="assets/img/labs/htb-devel.png" alt="HTB Devel"
+                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-accent2 text-base">
+                    Machine
+                  </span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <h3 class="text-sm font-semibold text-gray-100 leading-snug line-clamp-2 mb-2">Devel</h3>
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>30/08/2026</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5 mb-3">
+                    <span class="badge-back badge-machine"><i class="fa-solid fa-flag"></i> Machine</span>
+                    <span class="badge-back badge-htb"><i class="fa-solid fa-cube"></i> HTB</span>
+                    <span class="badge-back badge-easy"><i class="fa-solid fa-bolt"></i> Easy</span>
+                    <span class="badge-back badge-os-windows"><i class="fa-brands fa-windows"></i> Windows</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-3">
+                    Easy Windows. FTP anónimo con upload, ejecución vía IIS, reverse shell con msfvenom y escalada con JuicyPotato.
+                  </p>
+                  <p class="text-[10px] text-gray-500 mt-auto">🎯 HTB · Easy · Windows</p>
+                </div>
+              </div>
+
+              <!-- CARA TRASERA (solo botones) -->
+              <div class="lab-card-face lab-card-back border border-accent/50" style="--bg-img: url('assets/img/labs/htb-devel.png')">
+                <div class="flex flex-col gap-3 w-full max-w-xs">
+                  <a href="assets/writeups/devel.html"
+                    class="text-sm font-semibold text-center py-3 rounded-md bg-accent text-base hover:bg-accent/90 transition-colors">
+                    Ver paso a paso
+                  </a>
+                  <a href="assets/writeups-pdf/htb-devel.pdf" target="_blank"
+                    class="text-sm font-semibold text-center py-3 rounded-md border border-border text-gray-300 hover:border-accent hover:text-accent transition-colors">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Descargar PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============ FIN TARJETA 5 ============ -->
+
+
+          <!-- ============ TARJETA 6: Jerry (HTB) ============ -->
+          <div class="lab-card">
+            <div class="lab-card-inner">
+              <div class="lab-card-face lab-card-front bg-surface border border-border hover:border-accent2/50 transition-colors group">
+                <div class="relative aspect-square overflow-hidden bg-base">
+                  <img src="assets/img/labs/htb-jerry.png" alt="HTB Jerry"
+                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-accent2 text-base">
+                    Machine
+                  </span>
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <h3 class="text-sm font-semibold text-gray-100 leading-snug line-clamp-2 mb-2">Jerry</h3>
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>05/09/2026</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5 mb-3">
+                    <span class="badge-back badge-machine"><i class="fa-solid fa-flag"></i> Machine</span>
+                    <span class="badge-back badge-htb"><i class="fa-solid fa-cube"></i> HTB</span>
+                    <span class="badge-back badge-easy"><i class="fa-solid fa-bolt"></i> Easy</span>
+                    <span class="badge-back badge-os-windows"><i class="fa-brands fa-windows"></i> Windows</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-3">
+                    Easy Windows. Tomcat Manager con credenciales por defecto, deploy de WAR malicioso, shell como SYSTEM.
+                  </p>
+                  <p class="text-[10px] text-gray-500 mt-auto">🎯 HTB · Easy · Windows</p>
+                </div>
+              </div>
+
+              <!-- CARA TRASERA (solo botones) -->
+              <div class="lab-card-face lab-card-back border border-accent/50" style="--bg-img: url('assets/img/labs/htb-jerry.png')">
+                <div class="flex flex-col gap-3 w-full max-w-xs">
+                  <a href="assets/writeups/jerry.html"
+                    class="text-sm font-semibold text-center py-3 rounded-md bg-accent text-base hover:bg-accent/90 transition-colors">
+                    Ver paso a paso
+                  </a>
+                  <a href="assets/writeups-pdf/htb-jerry.pdf" target="_blank"
+                    class="text-sm font-semibold text-center py-3 rounded-md border border-border text-gray-300 hover:border-accent hover:text-accent transition-colors">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Descargar PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============ FIN TARJETA 6 ============ -->
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: Contacto -->
+    <section id="contacto" class="scroll-mt-20 min-h-screen px-6 py-24 relative">
+
+      <div class="max-w-5xl mx-auto w-full">
+
+        <p class="text-accent font-mono text-sm mb-4">
+          <span class="text-gray-500">$</span> // contacto
+        </p>
+
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-2">
+          ¿Hablamos?
+        </h2>
+        <p class="text-gray-500 mb-10 max-w-2xl">
+          Estoy abierto a oportunidades y colaboraciones en ciberseguridad. Elige el canal que prefieras.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <!-- Email -->
+          <a href="mailto:gerardperezsanchez@gmail.com"
+             class="group bg-surface border border-border rounded-xl p-6 flex flex-col items-start gap-4 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+            <div class="w-12 h-12 rounded-lg bg-base border border-border flex items-center justify-center group-hover:border-accent/50 transition-colors">
+              <i class="fa-solid fa-envelope text-danger text-lg"></i>
+            </div>
+            <div class="w-full">
+              <p class="text-sm font-semibold text-gray-100 mb-1">Email</p>
+              <p class="text-xs text-gray-500 break-all group-hover:text-gray-300 transition-colors">
+                gerardperezsanchez@gmail.com
+              </p>
+            </div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/jgsps" target="_blank" rel="noopener"
+             class="group bg-surface border border-border rounded-xl p-6 flex flex-col items-start gap-4 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+            <div class="w-12 h-12 rounded-lg bg-base border border-border flex items-center justify-center group-hover:border-accent/50 transition-colors">
+              <i class="fa-brands fa-linkedin text-accent text-lg"></i>
+            </div>
+            <div class="w-full">
+              <p class="text-sm font-semibold text-gray-100 mb-1">LinkedIn</p>
+              <p class="text-xs text-gray-500 break-all group-hover:text-gray-300 transition-colors">
+                /in/jgsps
+              </p>
+            </div>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/gerardosalvador" target="_blank" rel="noopener"
+             class="group bg-surface border border-border rounded-xl p-6 flex flex-col items-start gap-4 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+            <div class="w-12 h-12 rounded-lg bg-base border border-border flex items-center justify-center group-hover:border-accent/50 transition-colors">
+              <i class="fa-brands fa-github text-accent2 text-lg"></i>
+            </div>
+            <div class="w-full">
+              <p class="text-sm font-semibold text-gray-100 mb-1">GitHub</p>
+              <p class="text-xs text-gray-500 break-all group-hover:text-gray-300 transition-colors">
+                @gerardosalvador
+              </p>
+            </div>
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/529934444323" target="_blank" rel="noopener"
+             class="group bg-surface border border-border rounded-xl p-6 flex flex-col items-start gap-4 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+            <div class="w-12 h-12 rounded-lg bg-base border border-border flex items-center justify-center group-hover:border-accent/50 transition-colors">
+              <i class="fa-brands fa-whatsapp text-success text-lg"></i>
+            </div>
+            <div class="w-full">
+              <p class="text-sm font-semibold text-gray-100 mb-1">WhatsApp</p>
+              <p class="text-xs text-gray-500 break-all group-hover:text-gray-300 transition-colors">
+                +52 993 444 4323
+              </p>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-border py-6 text-center text-sm text-gray-500">
+    <p>© 22 - 09 - 2026 | Gerardo Salvador — Hecho con <span class="text-danger">♥</span> y mucho café ☕.</p>
+  </footer>
+
+</body>
+</html>
