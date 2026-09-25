@@ -552,6 +552,43 @@
 
       .copy-btn:hover { color: #22d3ee; }
       .copy-btn.copied { color: #4ade80; }
+
+            /* =============================================
+         TABLA CON SCROLL HORIZONTAL
+         ============================================= */
+      .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+        border: 1px solid #30363d;
+        border-radius: 0.5rem;
+        background-color: #161b22;
+      }
+
+      .table-wrapper table {
+        width: 100%;
+        min-width: 700px;  /* fuerza scroll si el contenido no cabe */
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+      }
+
+      /* Scrollbar estilizada */
+      .table-wrapper::-webkit-scrollbar {
+        height: 8px;
+      }
+      .table-wrapper::-webkit-scrollbar-track {
+        background: #0d1117;
+        border-radius: 0 0 0.5rem 0.5rem;
+      }
+      .table-wrapper::-webkit-scrollbar-thumb {
+        background: #30363d;
+        border-radius: 4px;
+      }
+      .table-wrapper::-webkit-scrollbar-thumb:hover {
+        background: #22d3ee;
+      }
     </style>
 
     <!-- === Iconos (Font Awesome) === -->
@@ -658,7 +695,7 @@
           <li><a href="https://ubuntu.com/download/server/thank-you?version=26.04.1&architecture=amd64&lts=true">ubuntu-26.04.1-live-server-amd64.iso</a></li>
         </ul>
 
-        <div class="code-block terminal">
+        <div class="table-wrapper">
           <table>
             <thead>
               <tr>
