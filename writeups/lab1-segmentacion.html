@@ -131,7 +131,9 @@
 
     <!-- === Estilos del writeup === -->
     <style>
-      /* === Badges === */
+      /* =============================================
+         BADGES
+         ============================================= */
       .badge-back {
         display: inline-flex;
         align-items: center;
@@ -155,7 +157,64 @@
       .badge-os-windows{ background: rgba(96,165,250,0.12);  color: #60a5fa; border-color: rgba(96,165,250,0.35); }
       .badge-vmware    { background: rgba(167,139,250,0.12); color: #a78bfa; border-color: rgba(167,139,250,0.4); }
 
-      /* === Bloques de código === */
+      /* =============================================
+         BLOQUES DE CÓDIGO / TERMINAL
+         ============================================= */
+
+      /* Contenedor del bloque con header (barra con dots + label) */
+      .code-wrapper {
+        background-color: #010409;
+        border: 1px solid #30363d;
+        border-radius: 0.5rem;
+        margin: 1.5rem 0;
+        overflow: hidden;
+      }
+
+      .code-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        background-color: #161b22;
+        border-bottom: 1px solid #30363d;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.72rem;
+        color: #8b949e;
+      }
+
+      .code-header .dots {
+        display: flex;
+        gap: 0.4rem;
+        margin-right: 0.5rem;
+      }
+
+      .code-header .dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .code-header .dots .dot-red    { background: #ff5f56; }
+      .code-header .dots .dot-yellow { background: #ffbd2e; }
+      .code-header .dots .dot-green  { background: #27c93f; }
+
+      .code-header .label {
+        color: #8b949e;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .code-header .lang {
+        margin-left: auto;
+        color: #22d3ee;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+
+      /* Bloque base */
       .code-block {
         background-color: #010409;
         border: 1px solid #30363d;
@@ -165,16 +224,211 @@
         font-size: 0.8rem;
         color: #e6edf3;
         overflow-x: auto;
-        line-height: 1.6;
+        line-height: 1.7;
+        margin: 1.5rem 0;
       }
 
-      .code-block .prompt { color: #22d3ee; }        /* $ */
+      /* Bloque dentro de un wrapper: sin bordes duplicados */
+      .code-wrapper .code-block {
+        border: none;
+        border-radius: 0;
+        margin: 0;
+      }
+
+      /* Tokens de sintaxis */
+      .code-block .prompt  { color: #22d3ee; user-select: none; }
       .code-block .comment { color: #6e7681; font-style: italic; }
       .code-block .keyword { color: #ff7b72; }
       .code-block .string  { color: #a5d6ff; }
       .code-block .number  { color: #79c0ff; }
+      .code-block .function{ color: #d2a8ff; }
+      .code-block .variable{ color: #ffa657; }
+      .code-block .operator{ color: #ff7b72; }
+      .code-block .path    { color: #79c0ff; }
+      .code-block .output  { color: #7ee787; }
 
-      /* === Contenido markdown-like === */
+      /* Variante de terminal (más compacta) */
+      .code-block.terminal {
+        background-color: #000000;
+        border-color: #22d3ee;
+        border-left-width: 3px;
+      }
+
+      /* =============================================
+         IMÁGENES / CAPTURAS
+         ============================================= */
+
+      /* Imagen simple dentro del writeup */
+      .writeup-content img {
+        border-radius: 0.5rem;
+        border: 1px solid #30363d;
+        margin: 1.5rem 0;
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Figura con caption */
+      .writeup-figure {
+        margin: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .writeup-figure img {
+        margin: 0;
+        width: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .writeup-figure figcaption {
+        font-size: 0.8rem;
+        color: #6e7681;
+        font-style: italic;
+        text-align: center;
+        max-width: 90%;
+        line-height: 1.5;
+      }
+
+      .writeup-figure figcaption::before {
+        content: "▲ ";
+        color: #22d3ee;
+        font-style: normal;
+      }
+
+      /* Imagen clickeable (thumbnail) */
+      .writeup-thumb {
+        cursor: zoom-in;
+        transition: transform 0.3s, border-color 0.3s;
+      }
+
+      .writeup-thumb:hover {
+        border-color: #22d3ee;
+        transform: scale(1.005);
+      }
+
+      /* Grid de imágenes (2 columnas) */
+      .writeup-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .writeup-gallery img {
+        margin: 0;
+        width: 100%;
+      }
+
+      /* =============================================
+         CALLOUTS / ADVERTENCIAS
+         ============================================= */
+
+      .callout {
+        display: flex;
+        gap: 0.875rem;
+        padding: 1rem 1.25rem;
+        border-radius: 0.5rem;
+        border-left: 4px solid;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .callout-icon {
+        flex-shrink: 0;
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      .callout-content { flex: 1; }
+      .callout-content p:first-child { margin-top: 0; }
+      .callout-content p:last-child  { margin-bottom: 0; }
+      .callout-content strong { font-weight: 700; }
+
+      .callout-info {
+        background: rgba(34, 211, 238, 0.08);
+        border-color: #22d3ee;
+        color: #a5f3fc;
+      }
+      .callout-info .callout-icon { color: #22d3ee; }
+
+      .callout-warning {
+        background: rgba(251, 191, 36, 0.08);
+        border-color: #fbbf24;
+        color: #fde68a;
+      }
+      .callout-warning .callout-icon { color: #fbbf24; }
+
+      .callout-danger {
+        background: rgba(248, 113, 113, 0.08);
+        border-color: #f87171;
+        color: #fecaca;
+      }
+      .callout-danger .callout-icon { color: #f87171; }
+
+      .callout-success {
+        background: rgba(74, 222, 128, 0.08);
+        border-color: #4ade80;
+        color: #bbf7d0;
+      }
+      .callout-success .callout-icon { color: #4ade80; }
+
+      .callout-note {
+        background: rgba(167, 139, 250, 0.08);
+        border-color: #a78bfa;
+        color: #ddd6fe;
+      }
+      .callout-note .callout-icon { color: #a78bfa; }
+
+      /* =============================================
+         TABLAS
+         ============================================= */
+      .writeup-content table {
+        width: 100%;
+        margin: 1.5rem 0;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+
+      .writeup-content thead {
+        background-color: #010409;
+      }
+
+      .writeup-content th {
+        text-align: left;
+        padding: 0.75rem 1rem;
+        color: #8b949e;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid #30363d;
+      }
+
+      .writeup-content td {
+        padding: 0.75rem 1rem;
+        color: #c9d1d9;
+        border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+      }
+
+      .writeup-content tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .writeup-content tbody tr:hover {
+        background-color: rgba(34, 211, 238, 0.04);
+      }
+
+      /* =============================================
+         CONTENIDO MARKDOWN-LIKE (base)
+         ============================================= */
       .writeup-content h2 {
         font-size: 1.5rem;
         font-weight: 700;
@@ -228,10 +482,16 @@
       .writeup-content ul { list-style: disc; }
       .writeup-content ol { list-style: decimal; }
       .writeup-content li { margin-bottom: 0.375rem; }
+      .writeup-content li::marker { color: #22d3ee; }
 
       .writeup-content strong {
         color: #e6edf3;
         font-weight: 600;
+      }
+
+      .writeup-content em {
+        color: #c9d1d9;
+        font-style: italic;
       }
 
       .writeup-content code {
@@ -255,11 +515,43 @@
         border-bottom-color: #22d3ee;
       }
 
-      .writeup-content img {
-        border-radius: 0.5rem;
-        border: 1px solid #30363d;
+      .writeup-content blockquote {
+        border-left: 3px solid #22d3ee;
+        padding: 0.5rem 1rem;
         margin: 1.5rem 0;
+        color: #8b949e;
+        font-style: italic;
+        background: rgba(34, 211, 238, 0.04);
+        border-radius: 0 0.25rem 0.25rem 0;
       }
+
+      .writeup-content hr {
+        border: none;
+        border-top: 1px solid #30363d;
+        margin: 2.5rem 0;
+      }
+
+      /* =============================================
+         BOTONES DE COPIA (opcional con JS)
+         ============================================= */
+      .code-wrapper { position: relative; }
+
+      .copy-btn {
+        position: absolute;
+        top: 0.55rem;
+        right: 0.75rem;
+        background: transparent;
+        border: none;
+        color: #6e7681;
+        cursor: pointer;
+        padding: 0.25rem;
+        font-size: 0.75rem;
+        transition: color 0.2s;
+        z-index: 2;
+      }
+
+      .copy-btn:hover { color: #22d3ee; }
+      .copy-btn.copied { color: #4ade80; }
     </style>
 
     <!-- === Iconos (Font Awesome) === -->
@@ -321,7 +613,7 @@
         <!-- Descripción corta -->
         <!-- 👇 Descripción corta del lab -->
         <p class="text-gray-400 leading-relaxed mb-6">
-          Diseñar, configurar e implementar una topología de red segmentada y segura desde cero, la cuál será para prácticas de ciberseguridad, aislando el tráfico de laboratorio de la red personal del host (máquina que virtualiza). Se configuró OPNsense como firewall principal con tres interfaces: WAN, LAN Test y Admin.
+          Diseñar, configurar e implementar una topología de red segmentada y segura para prácticas de ciberseguridad, aislando el tráfico de laboratorio de la red personal del host. Se configuró OPNsense como firewall principal con tres interfaces: WAN, LAN VMs y Admin.
         </p>
 
         <!-- CTA: Descargar PDF -->
@@ -346,127 +638,73 @@
 
         <h2>Objetivo</h2>
         <p>
-          Construir un entorno de laboratorio aislado y segmentado que permita realizar prácticas de ciberseguridad sin comprometer la red personal. Se utilizará <strong>OPNsense</strong> como firewall/router principal y se dividirá la red en tres segmentos: <code>WAN</code>, <code>LAN Test</code> y <code>Admin</code>.
+          Construir un entorno de laboratorio aislado y segmentado que permita realizar prácticas de ciberseguridad sin comprometer la red personal. Se utilizará <strong>OPNsense</strong> como firewall/router principal y se dividirá la red en tres segmentos: <code>WAN</code>, <code>LAN VMs</code> y <code>Admin</code>.
         </p>
 
-        <h2>Reconocimiento</h2>
-        <p>
-          Antes de empezar, definimos los requisitos del laboratorio.
-        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/topologia.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/topologia.png" 
+                alt="Topología" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Topología final</figcaption>
+        </figure>
 
-        <p>
-          Requisitos técnicos:
-        </p>
+        <h2>Requisitos</h2>
         <ul>
-          <li>Aislamiento total del tráfico de laboratorio.</li>
-          <li>Acceso a Internet de máquinas dentro de la LAN sin acceso a red de gestión.</li>
-          <li>Capacidad de simular ataques y tráfico malicioso sin riesgo.</li>
-          <li>Red administrativa separada para gestión del firewall.</li>
-        </ul>
-
-        <p>
-          Requisitos de software:
-        </p>
-        <ul>
-          <li>VMware Workstation Pro</li>
+          <li>VMware Workstation Pro.</li>
           <li><a href="https://opnsense.org/download/">OPNsense-26.7-dvd-amd64.iso</a></li>
           <li><a href="https://www.kali.org/get-kali/#kali-installer-images/">kali-linux-2026.2-installer-amd64.iso</a></li>
           <li><a href="https://ubuntu.com/download/server/thank-you?version=26.04.1&architecture=amd64&lts=true">ubuntu-26.04.1-live-server-amd64.iso</a></li>
         </ul>
 
-        <h3>Topología objetivo</h3>
-        <p>
-          La topología final consta de tres redes virtuales en VMware:
-        </p>
-        <div class="code-block">
-          <span class="comment"># Segmentos de red</span><br>
-            WAN    → em0  → 192.168.174.0/24   <span class="comment">(salida a internet simulado por VMnet8(NAT))</span><br>
-            LAN    → em1  → 192.168.1.0/24     <span class="comment">(máquinas de pruebas / víctimas)</span><br>
-            Admin  → em2  → 192.168.2.0/24     <span class="comment">(gestión de OPNsense simulado por VMnet1(Host-Only))</span>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>VM</th>
+              <th>RAM</th>
+              <th>Procesadores</th>
+              <th>HDD</th>
+              <th>Network Adapter 1</th>
+              <th>Network Adapter 2</th>
+              <th>Network Adapter 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OPNsense</td>
+              <td>1 GB</td>
+              <td>2</td>
+              <td>20 GB</td>
+              <td>NAT</td>
+              <td>LAN Segment (LAN VMs)</td>
+              <td>Host-Only</td>
+            </tr>
+            <tr>
+              <td>Kali Linux</td>
+              <td>4 GB</td>
+              <td>4</td>
+              <td>40 GB</td>
+              <td>LAN Segment (LAN VMs)</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Ubuntu Server</td>
+              <td>1 GB</td>
+              <td>4</td>
+              <td>20 GB</td>
+              <td>LAN Segment (LAN VMs)</td>
+            </tr>
+          </tbody>
+        </table>
 
-
-        <h2>Configuración</h2>
-
-        <h3>Virtualización</h3>
-        <p><code>OPNsense</code></p>
-        <ul>
-          <li>RAM: 1GB</li>
-          <li>Procesadores: 2</li>
-          <li>SSD: 20GB</li>
-          <li>Network Adapter 1: NAT</li>
-          <li>Network Adapter 2: LAN Segment(LAN TEST)</li>
-          <li>Network Adapter 3: Host Only</li>
-        </ul>
-
-        <p><code>Ubuntu Server</code></p>
-        <ul>
-          <li>RAM: 1GB</li>
-          <li>Procesadores: 4</li>
-          <li>SSD: 20GB</li>
-          <li>Network Adapter 1: LAN Segment(LAN TEST)</li>
-        </ul>
-
-        <p><code>Kali Linux</code></p>
-        <ul>
-          <li>RAM: 4GB</li>
-          <li>Procesadores: 4</li>
-          <li>SSD: 40GB</li>
-          <li>Network Adapter 1: LAN Segment(LAN TEST)</li>
-        </ul>
-
-        <h3>Configuración de firewall</h3>
-
-        <h3>Reglas de firewall</h3>
-        <ul>
-          <li><strong>LAN:</strong> permitir todo el tráfico hacia WAN (para pruebas de pentest)</li>
-          <li><strong>Admin:</strong> permitir solo HTTPS hacia la WebGUI</li>
-          <li><strong>WAN:</strong> bloquear todo el tráfico entrante por defecto</li>
-        </ul>
-
-        <div class="code-block">
-<span class="comment"># Ejemplo de regla NAT para redirigir HTTPS</span>
-Interface: WAN
-Protocol: TCP
-Destination: WAN address
-Destination port: 443
-Redirect target IP: 10.10.20.1
-Redirect target port: 443
-        </div>
-
-        <h2>Verificación</h2>
-        <p>
-          Después de configurar, probamos la conectividad desde cada segmento:
-        </p>
-
-        <div class="code-block">
-          <span class="comment"># Desde Kali (LAN)</span>
-          <span class="prompt">$</span> ping -c 3 8.8.8.8
-          <span class="comment"># Debe funcionar por la regla de NAT</span>
-          <br>
-          <span class="comment"># Desde Admin</span>
-          <span class="prompt">$</span> curl -k https://10.10.20.1
-          <span class="comment"># Debe devolver la WebGUI de OPNsense</span>
-        </div>
-
-        <h2>Conclusión</h2>
-        <p>
-          El laboratorio quedó completamente aislado y funcional. Ahora puedo realizar pruebas de pentesting, escaneos agresivos y análisis de tráfico sin afectar la red doméstica. En futuras iteraciones planeo agregar:
-        </p>
-        <ul>
-          <li>Snort/Suricata en OPNsense para IDS/IPS</li>
-          <li>Segmentación adicional para un DC (Active Directory)</li>
-          <li>Registro centralizado de logs con Graylog</li>
-        </ul>
-
-        <h3>Aprendizajes</h3>
-        <ul>
-          <li>Importancia de segmentar la red de laboratorio</li>
-          <li>Configuración básica de OPNsense (interfaces + reglas)</li>
-          <li>Uso de VMware Virtual Network Editor para segmentar</li>
-        </ul>
+        
 
       </div>
+
+
+
 
       <!-- ============ FOOTER DEL WRITEUP ============ -->
       <footer class="mt-16 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-4">
