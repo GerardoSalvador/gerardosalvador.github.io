@@ -699,7 +699,7 @@
           <table>
             <thead>
               <tr>
-                <th>VM</th>
+                <th>Máquinas</th>
                 <th>RAM</th>
                 <th>Procesadores</th>
                 <th>HDD</th>
@@ -710,7 +710,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>OPNsense</td>
+                <td>OPNsense (VM)</td>
                 <td>1 GB</td>
                 <td>2</td>
                 <td>20 GB</td>
@@ -719,7 +719,7 @@
                 <td>Host-Only</td>
               </tr>
               <tr>
-                <td>Kali Linux</td>
+                <td>Kali Linux (VM)</td>
                 <td>4 GB</td>
                 <td>4</td>
                 <td>40 GB</td>
@@ -728,19 +728,183 @@
                 <td></td>
               </tr>
               <tr>
-                <td>Ubuntu Server</td>
+                <td>Ubuntu Server (VM)</td>
                 <td>1 GB</td>
                 <td>4</td>
                 <td>20 GB</td>
                 <td>LAN Segment (LAN VMs)</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Windows 11 (Máquina host)</td>
+                <td>7 GB</td>
+                <td>6</td>
+                <td>40 GB</td>
+                <td>Host-Only (VMnet1)</td>
               </tr>
             </tbody>
           </table>
         </div>
 
+        <h2>Configuraciones</h2>
+
+        <h3>OPNsense</h3>
+        <p>Haremos la instalación de el Sistema Operativo de OPNsense, el usuario para hacerlo es "installer" y la contraseña es "opnsense"</p>
+
+        <p>Una vez hecha la instalación, veremos que en el menú inicial nos creará unas configuraciones por defecto en LAN y WAN.</p>
+
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/3.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/3.png" 
+                alt="Menú inicial OPNsense" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Menú inicial OPNsense</figcaption>
+        </figure>
+
+        <h4>Asignación de interfaces</h4>
+        <p>Para iniciar con la configuración de las interfaces, primero debemos asignar las interfaces de red desde el firewall, para lo cual elegiremos la opción 1</p>
+
+        <p>
+          Lista de preguntas mostradas y opciones establecidas:
+          <ul>
+            <li>Do you want to configure LAGGs now? [y/n]: <strong>n</strong></li>
+            <li>Do you want to configure VLANs now [y/n]: <strong>n</strong></li>
+            <li>Enter the WAN interface name or 'a' for auto-detection: <strong>em0</strong></li>
+            <li>Enter the LAN interface name or 'a' for auto-detection: <strong>em1</strong></li>
+            <li>Enter the Optional 1 interface name or 'a' for auto-detection: <strong>em2</strong></li>
+            <li>Enter the Optional 2 interface name or 'a' for auto-detection: <strong>[PRESIONAR ENTER]</strong></li>
+          </ul>
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/4.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/4.png" 
+                alt="Asignación de interfaces de red. (1/3)" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Asignación de interfaces de red. (1/3)</figcaption>
+        </figure>
+
+        <p>
+          Después, nos listará las interfaces de red y sus asignaciones, si estamos de acuerdo escribimos <strong>y</strong>.
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/5.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/5.png" 
+                alt="Asignación de interfaces de red. (2/3)" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Asignación de interfaces de red. (2/3)</figcaption>
+        </figure>
+
+        <p>
+          Nos llevará al menú inicial y veremos que las interfaces de red han sido creadas.
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/6.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/6.png" 
+                alt="Asignación de interfaces de red. (3/3)" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Asignación de interfaces de red. (3/3)</figcaption>
+        </figure>
+
+        <h4>Estableciendo direcciones IP</h4>
+        <p>
+          <strong>LAN (em1)</strong>. Una vez en el menú inicial, elegiremos la opcion 2 y procederemos a configurar la interfaz LAN.
+          <ul>
+            <li>Configure IPv4 address LAN interface via DHCP?: [y/n]: <strong>n</strong></li>
+            <li>Enter the new LAN IPv4 address. Press "ENTER" for none: <strong>172.16.1.1</strong></li>
+            <li>Enter the new LAN IPv4 subnet bit count (1 to 32): <strong>24</strong></li>
+            <li>For a LAN, press "ENTER" for none: <strong>[PRESIONAR ENTER]</strong></li>
+            <li>Configure IPv6 address LAN interface via WAN tracking? [y/n]: <strong>n</strong></li>
+            <li>Configure IPv6 address LAN interface via DHCP6? [y/n]: <strong>n</strong></li>
+            <li>Enter the new LAN IPv6 address. Press "ENTER" for none: <strong>[PRESIONAR ENTER]</strong></li>
+            <li>Do you want to enable the DHCP server on LAN? [y/n]: <strong>n</strong></li>
+            <li>Do you want to change the web GUI protocol from HTTPS to HTTP? [y/n]: <strong>n</strong></li>
+            <li>Do you want to generate a new self-signed web GUI certificate? [y/n]: <strong>n</strong></li>
+            <li>Restore web GUI access defaults? [y/n]: <strong>n</strong></li>
+          </ul>
+        </p>
+
+        <p>
+          <strong>OPT1 (em2)</strong>. Una vez en el menú inicial, elegiremos la opcion 2 y procederemos a configurar la interfaz OPT1.
+          <ul>
+            <li>Configure IPv4 address OPT1 interface via DHCP?: [y/n]: <strong>n</strong></li>
+            <li>Enter the new OPT1 IPv4 address. Press "ENTER" for none: <strong>10.10.10.1</strong></li>
+            <li>Enter the new OPT1 IPv4 subnet bit count (1 to 32): <strong>24</strong></li>
+            <li>For a LAN, press "ENTER" for none: <strong>[PRESIONAR ENTER]</strong></li>
+            <li>Configure IPv6 address OPT1 interface via WAN tracking? [y/n]: <strong>n</strong></li>
+            <li>Configure IPv6 address OPT1 interface via DHCP6? [y/n]: <strong>n</strong></li>
+            <li>Enter the new OPT1 IPv6 address. Press "ENTER" for none: <strong>[PRESIONAR ENTER]</strong></li>
+            <li>Do you want to enable the DHCP server on OPT1? [y/n]: <strong>n</strong></li>
+            <li>Do you want to change the web GUI protocol from HTTPS to HTTP? [y/n]: <strong>n</strong></li>
+            <li>Do you want to generate a new self-signed web GUI certificate? [y/n]: <strong>n</strong></li>
+            <li>Restore web GUI access defaults? [y/n]: <strong>n</strong></li>
+          </ul>
+        </p>
+
+        
+      <p>De tal manera que debe quedar nuestro menú principal de la siguiente forma:</p>
+      <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/13.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/13.png" 
+                alt="Estableciendo direcciones IP" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Estableciendo direcciones IP</figcaption>
+        </figure>
+
+        <h3>Kali Linux</h3>
+        <h4>Estableciendo dirección IPv4</h4>
+        <p>
+          Antes de establecer la dirección IP, validaremos las interfaces de red y sus propiedades. También, como prueba de no conexión, haremos ping a la dirección IP del segmento de red al que deberíamos estar conectados.
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/14.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/14.png" 
+                alt="Revisando propiedades de interfaces de red Kali" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Revisando propiedades de interfaces de red Kali</figcaption>
+        </figure>
+
+        <p>
+          A continuación, haremos múltiples pasos con el apoyo de un script que hice en bash. El cuál nos podrá ayudar en el futuro si deseamos cambiar solo la dirección IP.
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/15.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/15.png" 
+                alt="Script en bash: setIp.sh" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Script en bash: setIp.sh</figcaption>
+        </figure>
+        <div class="callout callout-info">
+          <div class="callout-icon">ℹ️</div>
+          <div class="callout-content">
+            <p>Recuerda asignar permisos de ejecución al script antes de continuar.</p>
+          </div>
+        </div>
+        
+        <p>
+          Una vez creado el script, procederemos a ejecutarlo y realizar las pruebas de conexión.
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/16.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/16.png" 
+                alt="Pruebas de conexion: Kali-OPNsense" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Pruebas de conexion: Kali-OPNsense</figcaption>
+        </figure>
+
         
 
+
       </div>
+
 
 
 
