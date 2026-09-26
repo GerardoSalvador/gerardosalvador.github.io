@@ -900,6 +900,122 @@
           <figcaption>Pruebas de conexion: Kali-OPNsense</figcaption>
         </figure>
 
+        <h3>Ubuntu Server</h3>
+        <h4>Estableciendo dirección IPv4</h4>
+        <p>
+          Antes de establecer la dirección IP, validaremos las interfaces de red y sus propiedades. También, como prueba de no conexión, haremos ping a la dirección IP del segmento de red al que deberíamos estar conectados.
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/29.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/29.png" 
+                alt="Revisando propiedades de interfaces de red Ubuntu Server" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Revisando propiedades de interfaces de red Ubuntu Server</figcaption>
+        </figure>
+
+        <p>Una vez validadas las propiedades de la interfaz de red, procederemos a establecer la dirección IPv4 estática, esto lo haremos navegando y abriendo con permisos de superusuario el archivo <strong>/etc/netplan/00-installer-config.yaml</strong></p>
+        <p>
+          Una vez dentro del archivo de configuración, procederemos a establecerlo como se muestra en la imágen.
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/30.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/30.png" 
+                alt="Estableciendo dirección de red IPv4 en Ubuntu Server" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Estableciendo dirección de red IPv4 en Ubuntu Server</figcaption>
+        </figure>
+
+        <p>Una vez realizados los cambios, procedemos a aplicarlos y listamos nuevamente las propiedades de la interfaz y hacemos ping al Firewall para validar la conexión</p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/31.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/31.png" 
+                alt="Validando conexión entre Ubuntu Server y OPNsense" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Validando conexión entre Ubuntu Server y OPNsense</figcaption>
+        </figure>
+
+
+        <h3>Windows</h3>
+        <h4>Estableciendo dirección IPv4</h4>
+        <p>
+          Para establecer la dirección IPv4 en la máquina windows, realizaremos los siguientes pasos:
+          <ul>
+            <li>Ir a: Ver conexiones de red</li>
+            <li>Seleccionar: VMware Network Adapter VMnet 1</li>
+            <li>Establecer dirección IPv4</li>
+          </ul>
+        </p>
+        <div class="writeup-gallery">
+          <a href="../assets/img/writeups/lab1/32.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/32.png" alt="Captura 1">
+          </a>
+          <a href="../assets/img/writeups/lab1/33.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/33.png" alt="Captura 2">
+          </a>
+          <a href="../assets/img/writeups/lab1/34.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/34.png" alt="Captura 3">
+          </a>
+        </div>
+
+        <p>
+          En este momento no tenemos acceso desde Windows hacia OPNsense. Para ello primero debemos crear una regla que permita la conexión desde una red diferente a la LAN, es por ello que esa regla la crearemos desde la máquina Kali
+        </p>
+
+        <p>
+          Hasta este punto hemos terminado el establecimiento de las direcciones IPv4 en las diferentes máquinas que conforma nuestro laboratorio.
+        </p>
+
+        <h2>Creación de reglas del Firewall</h2>
+        <h3>Kali Linux</h3>
+        <p>
+          Desde Kali Linux abrimos firefox y nos conectamos a OPNsense mediante la dirección IPv4: <strong>https://172.16.1.1</strong>
+        </p>
+        <p>
+          A continuacion realizaremos las siguientes operaciones para la primer regla de conexión entre Windows y OPNsense:
+          <ul>
+            <li>Ir a: Firewall/Rules/+</li>
+            <li>Description: <strong>Allow administration from the OPT1</strong></li>
+            <li>Interface: OPT1</li>
+            <li>Action: Pass</li>
+            <li>Directin: In</li>
+            <li>Version: IPv4</li>
+            <li>Protocol: any</li>
+            <li>Source: OPT1 Network</li>
+            <li>Destination: This Firewall</li>
+            <li>Guardamos los cambios</li>
+            <li>Aplicamos los cambios</li>
+          </ul>
+        </p>
+
+        <p>
+          Desde la máquina windows ya deberiamos poder alcanzar mediante ping a la dirección IPv4 <strong>10.10.10.1</strong>
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/35.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/35.png" 
+                alt="Validando conexión entre Windows y OPNsense" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Validando conexión entre Ubuntu Windows y OPNsense</figcaption>
+        </figure>
+
+        <p>
+          Abrimos firefox desde nuestra máquina Windows para validar la conexión mediante <strong>HTTPS</strong>
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/36.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/36.png" 
+                alt="Validando conexión HTTPS entre Windows y OPNsense" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Validando conexión HTTPS entre Ubuntu Windows y OPNsense</figcaption>
+        </figure>
+
+
+
         
 
 
