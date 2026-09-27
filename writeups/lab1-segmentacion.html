@@ -1168,6 +1168,46 @@
         </p>
 
         <h2>Verificación</h2>
+        <p>Validamos con la máquina Windows que tengamos conexión con el Firewall de OPNsense</p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/39.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/39.png" 
+                alt="Validamos la conexión desde Windows" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Validamos la conexión desde Windows</figcaption>
+        </figure>
+
+        <p>Validamos con la máquina Kali que no tengamos conexión <code>administrativa (ssh, https)</code> con el Firewall de OPNsense ni con las demas interfaces de red, solo con el servidor Ubuntu</p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/40.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/40.png" 
+                alt="Validamos la conexión desde Kali" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Validamos la conexión desde Kali</figcaption>
+        </figure>
+
+        <h2>Conclusion</h2>
+        <p>
+          El laboratorio quedó completamente aislado y funcional. Ahora puedo realizar pruebas de pentesting, escaneos agresivos y análisis de tráfico sin afectar la red doméstica. En futuras iteraciones planeo agregar:
+          <ul>
+            <li>Snort/Suricata en OPNsense para IDS/IPS</li>
+            <li>Segmentación adicional para un DC (Active Directory)</li>
+            <li>Registro centralizado de logs</li>
+          </ul>
+        </p>
+
+        <h3>Aprendizajes</h3>
+        <p>
+          <ul>
+            <li>Importancia de segmentar la red de laboratorio</li>
+            <li>Configuración básica de OPNsense (Interfaces + reglas)</li>
+            <li>Uso de VMware Virtual Network Editor para segmentar</li>
+          </ul>
+        </p>
+
+
 
 
 
