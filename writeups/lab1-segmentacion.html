@@ -1014,6 +1014,163 @@
           <figcaption>Validando conexión HTTPS entre Windows y OPNsense</figcaption>
         </figure>
 
+        <p>
+          Antes de continuar con la creación de las demás reglas, vamos a establecer en primera instancia un grupo de <strong>alias</strong>, donde tendrémos agregados los puertos de administración como <strong>22, 80, 443, 2222, 8080, 44343</strong>.
+        </p>
+
+        <p>
+          De igual manera vamos a deshabilitar una regla generada automáticamente llamada anti-lockout, la cuál nos supondrá un obstáculo en este momento, ya que nosotros solo queremos que la administración sea solo por la interfaz OPT1 y no por LAN.
+        </p>
+
+        <h4>Creación de Aliases</h4>
+        <p>
+          Para crear el alias haremos lo siguiente:
+          <ul>
+            <li>Ir a: <strong>Firewall/Aliases</strong></li>
+            <li>Agregaremos con el símbolo de <strong>+</strong></li>
+            <li>Name: <strong>admin_ports</strong></li>
+            <li>Type: <strong>Ports</strong></li>
+            <li>Content: <strong>22, 80, 443, 2222, 8080, 44343</strong></li>
+            <li>Description: <strong>Puertos de gestión</strong></li>
+          </ul>
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/37.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/37.png" 
+                alt="Creación de aliases en OPNsense" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Creación de aliases en OPNsense</figcaption>
+        </figure>
+
+        <h4>Deshabilitar anti-lockout</h4>
+        <p>
+          Para deshabilitar las reglas de administración anti-lockout, haremos lo siguiente:
+          <ul>
+            <li>Ir a: <strong>Firewall/Advanced</strong></li>
+            <li>Disable anti-lockout: <strong>✅ Disable administration anti-lockout rule</strong></li>
+          </ul>
+        </p>
+        <figure class="writeup-figure">
+          <a href="../assets/img/writeups/lab1/38.png" target="_blank">
+            <img src="../assets/img/writeups/lab1/38.png" 
+                alt="Deshabilitar anti-lockout" 
+                class="writeup-thumb">
+          </a>
+          <figcaption>Deshabilitar anti-lockout</figcaption>
+        </figure>
+
+        <h4>Orden de reglas</h4>
+        <p>
+          La tabla siguiente será el órden y las propiedades que definiremos en las reglas del Firewall para cumplir con los objetivos propuestos en nuestro laboratorio.
+        </p>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Check</th>
+                <th>Quick</th>
+                <th>Action</th>
+                <th>Interface</th>
+                <th>Version</th>
+                <th>Protocol</th>
+                <th>Source</th>
+                <th>Port</th>
+                <th>Destination</th>
+                <th>Port</th>
+                <th>Gateway</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>❌</td>
+                <td>✅</td>
+                <td>Block</td>
+                <td>LAN</td>
+                <td>IPv4</td>
+                <td>TCP/UDP</td>
+                <td>LAN Network</td>
+                <td>*</td>
+                <td>This Firewall</td>
+                <td>admin_ports</td>
+                <td>*</td>
+                <td>Block administration from the LAN</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Pass</td>
+                <td>OPT1</td>
+                <td>IPv4</td>
+                <td>*</td>
+                <td>OPT1 Network</td>
+                <td>*</td>
+                <td>This Firewall</td>
+                <td>*</td>
+                <td>*</td>
+                <td>Allow administration from the OPT1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>❌</td>
+                <td>✅</td>
+                <td>Block</td>
+                <td>LAN</td>
+                <td>IPv4</td>
+                <td>*</td>
+                <td>LAN Network</td>
+                <td>*</td>
+                <td>WAN Network</td>
+                <td>*</td>
+                <td>*</td>
+                <td>Block LAN from directly access to WAN</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Pass</td>
+                <td>LAN</td>
+                <td>IPv4</td>
+                <td>*</td>
+                <td>LAN Network</td>
+                <td>*</td>
+                <td>!OPT1 Network</td>
+                <td>*</td>
+                <td>*</td>
+                <td>Allow Out from LAN to !OPT1</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>Pass</td>
+                <td>LAN</td>
+                <td>IPv6</td>
+                <td>*</td>
+                <td>LAN Network</td>
+                <td>*</td>
+                <td>*</td>
+                <td>*</td>
+                <td>*</td>
+                <td>Default Allow LAN IPv6 to any rule</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          La regla 4 y 5 fueron generadas automáticamente por OPNsense. Solo editamos la regla numero 4 para permitir la salida por todas las interfaces de red menos por la red OPT1
+        </p>
+
+        <h2>Verificación</h2>
+
+
+
 
 
         
